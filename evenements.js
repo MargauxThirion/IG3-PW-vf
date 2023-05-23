@@ -1,0 +1,165 @@
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, ajoutListenersButtonAvis } from "./avis.js";
+import { ajoutListenerEnvoyerEvenement,ajoutListenersAjouterEvenement,ajoutListenersSupprEvenement, ajoutListenerSupprimerEvenement } from "./CreateEvenement.js";
+import { ajoutListenersParticipe, ajoutListenerEnvoyerParticipe, ajoutListenersButtonParticiper } from "./participer.js";
+
+document.addEventListener('DOMContentLoaded', async function () {
+  const reponses = await fetch(`http://localhost:3500/annonce`, {
+  method: "GET",
+});
+
+const evenements = await reponses.json();
+
+ajoutListenerEnvoyerAvis();
+ajoutListenerEnvoyerEvenement();
+ajoutListenerEnvoyerParticipe();
+
+
+function genererEvenements(evenements){
+  for (let i = 0; i < evenements.length; i++) {
+    const evenement = evenements[i];
+    const sectionFiches = document.querySelector(".fiches");
+    const evenementEl = document.createElement("article");
+    
+    const imageEl = document.createElement("img");
+    imageEl.src = evenement.image;
+
+    const nomEl = document.createElement("h2"); //le titre
+    nomEl.innerText = evenement.nom_association;
+
+    const nomMissionEl = document.createElement("h3"); //le titre de la mission
+    nomMissionEl.innerText = 'Mission '+ evenement.numero_mission + ' : ' + evenement.nom_mission;
+
+    const descriptionEl = document.createElement("p"); //la description
+    descriptionEl.innerText = evenement.desc;
+
+    const dateEl = document.createElement("p"); //la date
+    dateEl.innerText = 'Date début: ' + evenement.date;
+
+    const dureeEl = document.createElement("p"); //la durée
+    dureeEl.innerText = 'Durée: ' + evenement.duree + ' heures';
+    
+    const nbr_benevoleEl = document.createElement("p"); //le nombre de bénévole
+    nbr_benevoleEl.innerText = 'Nombre de personne nécessaire : ' + evenement.nbr_benevole;
+    
+    const competencesEl = document.createElement("p"); //les compétences
+    competencesEl.innerText = 'Compétence nécessaire : ' + evenements[i].competence;
+    
+    const adresseEl = document.createElement("p"); //l'adresse
+    adresseEl.innerText = 'Adresse : ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + evenement.pays;
+
+    const avisBouton = document.createElement("buttonA");
+    avisBouton.dataset.id = evenement.id;
+    avisBouton.textContent = "Afficher les avis";
+
+    const ParticipeBouton = document.createElement("buttonP");
+    ParticipeBouton.dataset.id = evenement.id;
+    ParticipeBouton.textContent = "Participant";
+
+    //Ratachement de nos éléments au DOM
+    sectionFiches.appendChild(evenementEl);
+    evenementEl.appendChild(imageEl);
+    evenementEl.appendChild(nomEl);
+    evenementEl.appendChild(nomMissionEl);
+    evenementEl.appendChild(descriptionEl);
+    evenementEl.appendChild(dateEl);
+    evenementEl.appendChild(dureeEl);
+    evenementEl.appendChild(nbr_benevoleEl);
+    evenementEl.appendChild(competencesEl);
+    evenementEl.appendChild(adresseEl);
+    evenementEl.appendChild(ParticipeBouton);
+    evenementEl.appendChild(avisBouton);
+
+  }
+  ajoutListenersAvis();
+  ajoutListenersParticipe();
+  //ajoutListenerSupprimerEvenement();
+}
+genererEvenements(evenements);
+ajoutListenersButtonAvis();
+ajoutListenersButtonParticiper();
+ajoutListenersAjouterEvenement();
+ajoutListenersSupprEvenement();
+
+
+
+
+function convertirEnDateObjet(dateString) {
+  const dateArray = dateString.split("-"); // sépare la chaîne en tableau de jour, mois et année
+  const year = parseInt(dateArray[0]);
+  const month = parseInt(dateArray[1]) - 1; // les mois dans l'objet de date commencent à 0 (janvier = 0)
+  const day = parseInt(dateArray[2]);
+
+  return new Date(year, month, day); // renvoie l'objet de date
+}
+
+
+
+// bouton pour trier par date chronologique 
+const boutonTrierDate = document.querySelector(".btn-trier-date"); //tirer les évènement du plus proche au plus loin
+boutonTrierDate.addEventListener("click", function() {
+  const dateOrdo = Array.from(evenements);
+  dateOrdo.sort(function(a, b) {
+    const dateA = convertirEnDateObjet(a.date);
+    const dateB = convertirEnDateObjet(b.date);
+    return dateA - dateB;
+    });
+    // Effacement de l'écran et regénération de la page
+    document.querySelector(".fiches").innerHTML = "";
+    genererEvenements(dateOrdo);
+});
+
+
+
+function filtrerEvenementsDansMoinsDuneSemaine(evenements) {
+  const uneSemaineEnMs = 7 * 24 * 60 * 60 * 1000; // nombre de millisecondes dans une semaine
+  const maintenant = new Date(); // date et heure actuelles
+
+  return evenements.filter(function(evenement) {
+      const dateDebut = convertirEnDateObjet(evenement.date);
+      const tempsAvantDebut = dateDebut.getTime() - maintenant.getTime(); // temps en millisecondes entre maintenant et la date de début de l'événement
+      return tempsAvantDebut <= uneSemaineEnMs && tempsAvantDebut > 0; // renvoie true si la date de début de l'événement est dans moins d'une semaine à partir de maintenant
+  });
+}
+const boutonFiltrerDate = document.querySelector(".btn-filtrer-date"); //filtrer les pièces dont le prix est inférieur à un certain montant
+boutonFiltrerDate.addEventListener("click", function () {
+  const evenementsDansMoinsDuneSemaine = filtrerEvenementsDansMoinsDuneSemaine(evenements);
+    
+  // Effacer l'écran et regénérer la page avec les événements filtrés
+  document.querySelector(".fiches").innerHTML = "";
+  genererEvenements(evenementsDansMoinsDuneSemaine);
+});
+
+
+
+
+// supprime les evenement plus long que 2 heures
+const evenementsRapides = evenements.filter(evenement => evenement.duree <= 2);
+const noms_miss = evenementsRapides.map(evenement => evenement.nom_mission);
+/*
+//for(let i = evenements.length -1 ; i >= 0; i--){
+//  if(evenements[i].duree > 2){
+//    evenementsRapides.splice(i,1)
+//  }
+//}
+console.log(evenementsRapides)
+*/
+//En tête de la liste 
+const rEl = document.createElement('p');
+rEl.innerText = 'Les missions les plus rapide à réaliser (moins de 2 heures) sont :';
+//Création d'une liste
+const rapideEl = document.createElement('ul');
+//Ajout de chaque nom à la liste
+for(let i=0; i < noms_miss.length ; i++){
+  const nomEl = document.createElement('li');
+  nomEl.innerText = noms_miss[i];
+  rapideEl.appendChild(nomEl)
+}
+// Ajout de l'en-tête puis de la liste au bloc résultats filtres
+const rapideELE = document.querySelector('.rapide')
+rapideELE.appendChild(rEl);
+rapideELE.appendChild(rapideEl);
+
+
+
+
+});

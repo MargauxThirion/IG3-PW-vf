@@ -1,0 +1,11 @@
+{
+  "name": "7697016-front-end.1",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "http-server",
+    "dev": ""
+  },
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

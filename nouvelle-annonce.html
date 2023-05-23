@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Nouvelle Annonce</title>
+		<link rel="stylesheet" href="style.css">
+		<script type="module" src="evenements.js"></script>
+	</head>
+	<body>
+		<header>
+			<a href="index.html"> <img src="icon/icon.png" alt="LOGO" > </a>
+			<nav>
+				<ul>
+					<a class="nav-link" href="index.html">Accueil</a>
+					<b class="nav-link" href="nouvelle-annonce.html">Annonces</b>
+					<a class="nav-link" href="profil.html">Profil</a>
+				</ul> 
+			</nav>
+		</header>
+		<main>
+			<!-- Menu de recherche -->
+			<section class="filtres" style="background-color: #2dcc9c;">	
+				<div class="no-display">
+					<button class="btn-filtrer-date"  style="background-color: #ddfee4; border:#ddfee4 ; border-radius: 10px;">Afficher les éléments à moins d'une semaine</button>
+					<br>
+					<button class="btn-trier-date"  style="background-color: #ddfee4; border:#ddfee4 ; border-radius: 10px;">Trier par ordre chronologique </button>
+				</div>
+				<div class="formulaire-container-avis">
+					<button id="btn-avis" class="btn-menu">Ajouter un avis</button>
+					<form class="formulaire-avis"></form>
+				</div>
+				<div class="formulaire-container-participer">
+					<button id="btn-participer" class="btn-menu">Participer à un événement</button>
+					<form class="formulaire-participer"></form>
+				</div>
+				<div class="btn-container">
+					<button id="btn-annonce-ajouter" class="btn-menu">Ajouter un évènement</button>
+					<div class="formulaire-container-ajouter">
+						<form class="formulaire-evenement">
+							Nom de l'association :<br>
+							<input type="text" name="nom_association"><br>
+							Nom de la mission :<br>
+							<input type="text" name="nom_mission"><br>
+							<input type="hidden" name="numero_mission">
+							Description :<br>
+							<input type="text" name="desc"><br>
+							Date début :<br>
+							<input type="date" name="date"><br>
+							Durée : <em>(en heures)</em><br>
+							<input type="number" name="duree"><br>
+							Nombre de bénévoles :<br>
+							<input type="number" name="nbr_benevole"><br>
+							Compétence requise :<br>
+							<select name="competence">
+								<option value="Aucune">Aucune</option>
+								<option value="animaux">être a l'aise avec les animaux</option>
+								<option value="porter_objet">Pouvoir porter des objets lourds</option>
+								<option value="sociale">être à l'aise avec les gens</option>
+								<option value="Conduire">avoir le permis</option>
+							</select>
+							<h4>---------------------- </h4>
+							Pays :<br>
+							<input type="text" name="pays"><br>
+							Ville :<br>
+							<input type="text" name="ville"><br>
+							Code postal :<br>
+							<input type="number" name="code_postal"><br>
+							Rue :<br>
+							<input type="text" name="rue"><br>
+							<h4>---------------------- </h4>
+							Image :<br>
+							<input type="file" name="image"><br>
+							<br>
+							<button id="envoyer" style="background-color: #ddfee4; border:#ddfee4 ; border-radius: 10px;">Envoyer</button><br>
+						</form>
+					</div>
+					<button id="btn-annonce-suppr" class="btn-menu">Supprimer un évènement</button>
+					<div class="formulaire-container-suppr">
+						<form class="formulaire-supprimer-ev">
+							Numéro mission à supprimer :<br>
+							<input type="number" name="numero_mission"><br>
+							<button style="background-color: #ddfee4; border:#ddfee4 ; border-radius: 10px;">Envoyer</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<!-- Fiches produits -->
+			<section class="fiches">
+				<div class="no-display">
+					<div class="rapide" style="background-color: #ddfee4; border-radius: 4px; box-shadow: 0px 0px 4px #2dcc9c;"></div>
+				</div>
+			</section>
+		</main>
+	</body>
+	
+</html>
