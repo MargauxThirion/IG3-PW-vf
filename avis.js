@@ -9,48 +9,36 @@ export function ajoutListenersButtonAvis() {
         }
     });
 }
-
 export function ajoutListenersAvis() {
     const annoncesEl = document.querySelectorAll(".fiches article buttonA");
     for (let i = 0; i < annoncesEl.length; i++) {
         annoncesEl[i].addEventListener("click", async function (event) {
-            missionId = annoncesEl[i].numero_mission;
-            const url = `http://localhost:3500/avis/mission/${missionId}`;
-        try {
-          const response = await fetch(url);
-          const avis = await response.json();
+            const missionId = annoncesEl[i].numero_mission;
+            const Json = JSON.stringify(missionId);
+            console.log(Json);
+            const reponses = await fetch(`http://localhost:3500/avis/mission/${Json}`, {
+            method: "GET",
+            });
   
-          const annonceEl = event.target.parentElement;
-          const avisEl = document.createElement("av");
+            try {
+                const avis = await reponses.json();
+                const annonceEl = event.target.parentElement;
+                const avisContainer = document.createElement("div");
   
-          for (let j = 0; j < avis.length; j++) {
-            avisEl.innerHTML += `Avis_${j}: ${avis[j].id_user}: ${avis[j].commentaire} <br>`;
-          }
-  
-          annonceEl.appendChild(avisEl);
-        } catch (error) {
-          console.error('Erreur lors de la récupération des avis:', error);
-            }
+                for (let j = 0; j < avis.length; j++) {
+                    if (avis[j].numero_mission === missionId) {
+                        const avisEl = document.createElement("p");
+                        avisEl.innerHTML = `Avis_${j}: ${avis[j].id_user}: ${avis[j].commentaire} <br>`;
+                        avisContainer.appendChild(avisEl);
+                    }
+                }
+                annonceEl.appendChild(avisContainer);
+            } catch (error) {
+                console.error('Erreur lors de la récupération des avis:', error)}
         });
     }
 }
-
-    /*const annoncesEl = document.querySelectorAll(".fiches article buttonA");
-
-    for (let i = 0; i < annoncesEl.length; i++) {
-        annoncesEl[i].addEventListener("click", async function (event) {
-            const id = event.target.dataset.id;
-            const reponse = await fetch(`http://localhost:3500/avis?missionId=${i}`);
-            const avis = await reponse.json(); //transforme le json en objet js
-            const annonceEl = event.target.parentElement;
-            const avisEl = document.createElement("av");
-            for (let i = 0; i < avis.length; i++) {
-                avisEl.innerHTML += `Avis_${[i]} ${avis[i].utilisateur}: ${avis[i].commentaire} <br>`;
-            }
-            annonceEl.appendChild(avisEl);
-        });
-    }*/
-
+  
 
 export function ajoutListenerEnvoyerAvis() {
     const formulaireAvis = document.querySelector(".formulaire-avis");

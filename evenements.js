@@ -32,8 +32,14 @@ function genererEvenements(evenements){
     const descriptionEl = document.createElement("p"); //la description
     descriptionEl.innerText = evenement.desc;
 
-    const dateEl = document.createElement("p"); //la date
-    dateEl.innerText = 'Date début: ' + evenement.date;
+    const dateEl = document.createElement("p"); // Élément pour afficher la date
+    const dateDebut = new Date(evenement.date); // Convertit la date en objet Date
+    // Formattage de la date
+    const jour = String(dateDebut.getDate()).padStart(2, "0"); // Récupère le jour avec deux chiffres (ajoute un zéro si nécessaire)
+    const mois = String(dateDebut.getMonth() + 1).padStart(2, "0"); // Récupère le mois avec deux chiffres (ajoute un zéro si nécessaire)
+    const annee = dateDebut.getFullYear(); // Récupère l'année
+    const dateFormatee = jour + "-" + mois + "-" + annee; // Formatage final de la date
+    dateEl.innerText = "Date début: " + dateFormatee;
 
     const dureeEl = document.createElement("p"); //la durée
     dureeEl.innerText = 'Durée: ' + evenement.duree + ' heures';
@@ -41,11 +47,28 @@ function genererEvenements(evenements){
     const nbr_benevoleEl = document.createElement("p"); //le nombre de bénévole
     nbr_benevoleEl.innerText = 'Nombre de personne nécessaire : ' + evenement.nbr_benevole;
     
-    const competencesEl = document.createElement("p"); //les compétences
-    competencesEl.innerText = 'Compétence nécessaire : ' + evenements[i].competence;
+    const competencesEl = document.createElement("p"); // les compétences
+    const competenceValue = evenements[i].competence;
+    let competenceText = '';
+    switch (competenceValue) {
+      case 'Aucune': competenceText = 'Aucune';
+        break;
+      case 'animaux': competenceText = "Être à l'aise avec les animaux";
+        break;
+      case 'porter_objet': competenceText = 'Pouvoir porter des objets lourds';
+        break;
+      case 'sociale': competenceText = 'Être à l\'aise avec les gens';
+        break;
+      case 'Conduire': competenceText = 'Avoir le permis';
+        break;
+      default:competenceText = competenceValue;
+    }
+    competencesEl.innerText = 'Compétence nécessaire : ' + competenceText;
     
     const adresseEl = document.createElement("p"); //l'adresse
-    adresseEl.innerText = 'Adresse : ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + evenement.pays;
+    const paysEnMajuscules = evenement.pays.toUpperCase(); // Met le pays en majuscules
+    adresseEl.innerText = 'Adresse : ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + paysEnMajuscules;
+
 
     const avisBouton = document.createElement("buttonA");
     avisBouton.dataset.id = evenement.id;
@@ -72,7 +95,7 @@ function genererEvenements(evenements){
   }
   ajoutListenersAvis();
   ajoutListenersParticipe();
-  //ajoutListenerSupprimerEvenement();
+  ajoutListenerSupprimerEvenement();
 }
 genererEvenements(evenements);
 ajoutListenersButtonAvis();

@@ -67,28 +67,18 @@ export async function ajoutListenerEnvoyerEvenement() {
 
 export function ajoutListenerSupprimerEvenement() {
   const formulaireSupprimerEv = document.querySelector(".formulaire-supprimer-ev");
-    formulaireSupprimerEv.addEventListener("submit", function (event) {
-        event.preventDefault(); // empeche le rechargement de la page
-        // Récupération de l'id de l'avis à supprimer
-        const numero_mission = parseInt(event.target.elements.numero_mission.value) 
-        if (isNaN(numero_mission)) {
-          console.error("L'ID de la mission n'est pas un nombre valide.");
-          return; // Arrêter l'exécution de la fonction ou afficher un message d'erreur approprié
-        }
-        console.log("je suis la");
-        // Suppression de l'avis 
-        fetch(`http://localhost:3500/annonce/${numero_mission}`, {
-            method: "DELETE",
-            headers: {"Content-Type": "application/json"}
-        })
-        .then(response => {
-            if (response.ok) {
-              setTimeout(function() {location.reload()}, 500);
-            } else {
-                // Sinon, on affiche un message d'erreur
-                console.error("Une erreur s'est produite lors de la suppression de l'avis", error);
-                throw error;
-            }
-        });
+  formulaireSupprimerEv.addEventListener("submit", function (event) {
+    event.preventDefault(); // empeche le rechargement de la page
+    // Récupération de l'id de l'avis à supprimer
+    const numero_mission = parseInt(event.target.elements.numero_mission.value) 
+    // Suppression de l'avis 
+    fetch(`http://localhost:3500/annonce/${numero_mission}`, {
+      method: "DELETE"
+      })
+    .then(response => {
+      if (response.ok) {setTimeout(function() {location.reload()}, 500);} 
+      else {console.error("Une erreur s'est produite lors de la suppression de l'avis", error);
+        throw error;}
     });
+  });
 }
