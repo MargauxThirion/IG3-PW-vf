@@ -1,0 +1,130 @@
+body {
+	max-width: 1200px;
+	margin: auto;
+	padding: 16px;
+	font-family: 'Ascender Sans Mono WGL', Bold;
+    margin: 0;
+    padding: 20px;
+  }
+
+
+  header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 16px;
+	padding: 8px;
+	background-color: #ddfee4;
+	text-align: center;
+	color: #2dcc9c;
+}
+header img {
+	height: 90px;
+	margin-left: 1rem;
+}
+header h1 {	/* Bandeau de la page */
+	flex-grow: 1;
+}
+
+nav a {
+	color: #2dcc9c;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.5rem;
+	margin-left: 3rem;
+
+}
+
+nav b {
+	color: #1e7b5f;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.5rem;
+	margin-left: 3rem;
+
+}
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #1e7b5f;
+
+  }
+  
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 150px;
+  }
+  
+  .info {
+    margin-bottom: 20px;
+  }
+  
+  .info p {
+    margin: 5px 0;
+  }
+  
+  .description {
+    margin-bottom: 20px;
+  }
+  .competences {
+    margin-bottom: 20px;
+  }
+  
+  .competences ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .competences li {
+    margin-bottom: 5px;
+  }
+  .fiches {
+	flex: 1;
+	margin: 8px;
+	font-style: Bold;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+}
+.fiches article {	/*cadre des fiches*/
+	border: 1px solid #2dcc9c;
+	padding: 4px;
+	border-radius: 4px;
+	box-shadow: 0px 0px 4px gray;
+}
+.fiches article img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 200px;
+}
+.fiches article h2 { /* Nom de l'association */
+	text-align: center;
+}
+.fiches article h3 { /* Nom de la mission */
+	text-align: center;
+}
+.fiches article p {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-style: Bold;
+}
+
+.fiches article ul {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-style: Bold;
+	text-align: center;
+}

@@ -70,12 +70,14 @@ function genererEvenements(evenements){
     adresseEl.innerText = 'Adresse : ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + paysEnMajuscules;
 
 
-    const avisBouton = document.createElement("buttonA");
-    avisBouton.dataset.id = evenement.id;
+    const avisBouton = document.createElement("button");
+    avisBouton.dataset.id = evenement.numero_mission;
+    avisBouton.classList.add("btn-avis");
     avisBouton.textContent = "Afficher les avis";
 
-    const ParticipeBouton = document.createElement("buttonP");
-    ParticipeBouton.dataset.id = evenement.id;
+    const ParticipeBouton = document.createElement("button");
+    ParticipeBouton.dataset.id = evenement.numero_mission;
+    ParticipeBouton.classList.add("btn-participe");
     ParticipeBouton.textContent = "Participant";
 
     //Ratachement de nos éléments au DOM

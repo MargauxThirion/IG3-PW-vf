@@ -27,9 +27,12 @@ export async function ajoutListenerEnvoyerEvenement() {
   const formulaireEvenement = document.querySelector(".formulaire-evenement");
   formulaireEvenement.addEventListener("submit", async function (event) {
   event.preventDefault(); // empeche le rechargement de la page
+
     
   try {
     const maxNumeroMission = await trouverAnnonceMaxNumeroMission();
+    const selectedOption = event.target.elements.image.options[event.target.elements.image.selectedIndex];
+    const imagePath = selectedOption.getAttribute('data-image');
     // création d'un nouvel objet avis 
     const evenement = {
         nom_association: event.target.elements.nom_association.value,
@@ -44,7 +47,7 @@ export async function ajoutListenerEnvoyerEvenement() {
         ville: event.target.elements.ville.value,
         code_postal: event.target.elements.code_postal.value,
         rue: event.target.elements.rue.value,
-        image: event.target.elements.image.value,
+        image:imagePath,
       };
     // conversion de l'objet en JSON
       const Json = JSON.stringify(evenement);

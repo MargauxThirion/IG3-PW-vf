@@ -1,3 +1,4 @@
+
 export function ajoutListenersButtonAvis() {
     var boutonAvis = document.getElementById('btn-avis');
     var formulaireContainer = document.querySelector('.formulaire-container-avis');
@@ -10,31 +11,21 @@ export function ajoutListenersButtonAvis() {
     });
 }
 export function ajoutListenersAvis() {
-    const annoncesEl = document.querySelectorAll(".fiches article buttonA");
+    const annoncesEl = document.querySelectorAll(".fiches article .btn-avis");
     for (let i = 0; i < annoncesEl.length; i++) {
         annoncesEl[i].addEventListener("click", async function (event) {
-            const missionId = annoncesEl[i].numero_mission;
-            const Json = JSON.stringify(missionId);
-            console.log(Json);
-            const reponses = await fetch(`http://localhost:3500/avis/mission/${Json}`, {
+            const missionId = event.target.dataset.id;
+            console.log(missionId);
+            const reponses = await fetch(`http://localhost:3500/avis/mission/${missionId}`, {
             method: "GET",
             });
-  
-            try {
-                const avis = await reponses.json();
-                const annonceEl = event.target.parentElement;
-                const avisContainer = document.createElement("div");
-  
-                for (let j = 0; j < avis.length; j++) {
-                    if (avis[j].numero_mission === missionId) {
-                        const avisEl = document.createElement("p");
-                        avisEl.innerHTML = `Avis_${j}: ${avis[j].id_user}: ${avis[j].commentaire} <br>`;
-                        avisContainer.appendChild(avisEl);
-                    }
-                }
-                annonceEl.appendChild(avisContainer);
-            } catch (error) {
-                console.error('Erreur lors de la récupération des avis:', error)}
+            const avis = await reponses.json(); //transforme le json en objet js
+            const annonceEl = event.target.parentElement;
+            const avisEl = document.createElement("av");
+            for (let i = 0; i < avis.length; i++) {
+                avisEl.innerHTML += `Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
+            }
+            annonceEl.appendChild(avisEl);
         });
     }
 }

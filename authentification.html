@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'authentification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+    }
+
+    .container h2 {
+      text-align: center;
+    }
+
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .container button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Authentification</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+      <input type="password" id="password" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+    </form>
+    <p>Vous n'avez pas de compte ? <a href="inscriptionA.html">S'inscrire</a></p>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Vérification des informations d'identification
+      if (username === "admin" && password === "password") {
+        alert("Authentification réussie !");
+        // Redirection vers la page suivante
+        window.location.href = "index.html";
+      } else {
+        alert("Nom d'utilisateur ou mot de passe incorrect !");
+      }
+    });
+  </script>
+</body>
+</html>

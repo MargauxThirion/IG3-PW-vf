@@ -11,7 +11,7 @@ export function ajoutListenersButtonParticiper() {
 }
 
 export function ajoutListenersParticipe() {
-    const annoncesEl = document.querySelectorAll(".fiches article buttonP");
+    const annoncesEl = document.querySelectorAll(".fiches article .btn-participe");
 
     for (let i = 0; i < annoncesEl.length; i++) {
         annoncesEl[i].addEventListener("click", async function (event) {
