@@ -55,10 +55,10 @@
 
 
 				const encodedEmail = encodeURIComponent('Assoc2.mail@gmail.com');
-				const url = await fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
+				const url = fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
 					method: 'GET',
 				});
-				const userA = await url.json();
+				const userA = url.json();
 				const annonceEl = event.target.parentElement;
             	const userEl = document.createElement("av");
                 userEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
