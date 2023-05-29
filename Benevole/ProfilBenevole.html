@@ -18,7 +18,7 @@
 		<body>
 			<script>
 				function getToken() {
-            		return localStorage.getItem('token');
+            		return localStorage.getItem('email');
 					
         		}
 
@@ -27,7 +27,7 @@
            			 var token = getToken();
            			 if (token) {
                 		console.log('Token:', token);
-						console.log('Mail:', localStorage.getItem('emailU'));
+						console.log('Mail:', localStorage.getItem('email'));
                 		// Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
                 		$('#tokenValue').text(token);
            			} else {
@@ -46,7 +46,7 @@
             	const userEl = document.createElement("av");
                 userEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
             	annonceEl.appendChild(userEl);
-				localStorage.setItem('emailU', data.emailU);
+				localStorage.setItem('email', data.emailU);
         		localStorage.setItem('token', data.token);
         		console.log(data);
         		console.log('localStorage=',localStorage.getItem('emailU'));
