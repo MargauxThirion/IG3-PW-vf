@@ -83,30 +83,33 @@
         alert("Les mots de passe ne correspondent pas");
         return;
       }
-      fetch('https://web-hands-in-hands.onrender.com/userBen/signup', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
+      else{
+        fetch('https://web-hands-in-hands.onrender.com/userBen/signup', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
             emailU: emailU,
             passwordU: passwordU,
             nomU: nomU,
             prenomU: prenomU,
             adresseU: adresseU,
             competenceU: competenceU,
+          })
         })
-      })
-      .then(reponse =>{
-        console.log(reponse);
-        if(reponse.ok){
-          window.location.href = "https://hands-in-hands.onrender.com";
-        } else {
-          alert("Erreur lors de l'inscription");
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .then(reponse =>{
+          console.log(reponse);
+          if(reponse.ok){
+            window.location.href = "https://hands-in-hands.onrender.com";
+          } else {
+            alert("Erreur lors de l'inscription");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
     })
+  
   </script>
 </body>
 </html>
