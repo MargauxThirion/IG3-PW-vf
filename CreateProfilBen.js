@@ -22,33 +22,36 @@ document.addEventListener('DOMContentLoaded', async function () {
     const reponses = await fetch(`https://web-hands-in-hands.onrender.com/userBen/${encodedEmail}`, {
     method: "GET",
     });
-    const user = await reponses.json();
-    console.log(user);
-  function genererProfil(user){
-    const sectionFiches = document.querySelector(".Profile");
-    const userEl = document.createElement("article");
+    const users = await reponses.json();
+    console.log(users);
+    function genererProfil(users){
+        for (let i = 0; i < users.length; i++) {
+            const user = users[i];
+        const sectionFiches = document.querySelector(".Profile");
+        const userEl = document.createElement("article");
 
-    const nomUCmp = document.createElement("h2"); 
-    nomUCmp.innerText = user.nomU + ' ' + user.prenomU;
+        const nomUCmp = document.createElement("h2"); 
+        nomUCmp.innerText = user.nomU + ' ' + user.prenomU;
 
-    const emailU = document.createElement("h3"); 
-    emailU.innerText = user.emailU;
+        const emailU = document.createElement("h3"); 
+        emailU.innerText = user.emailU;
 
-    const num_telU = document.createElement("p");
-    num_telU.innerText = user.num_telU; 
+        const num_telU = document.createElement("p");
+        num_telU.innerText = user.num_telU; 
 
-    const adresseU = document.createElement("p");
-    adresseU.innerText = user.adresseU;
+        const adresseU = document.createElement("p");
+        adresseU.innerText = user.adresseU;
 
-    const competenceU = document.createElement("p");
-    competenceU.innerText = user.competenceU;
+        const competenceU = document.createElement("p");
+        competenceU.innerText = user.competenceU;
 
-    sectionFiches.appendChild(userEl);
-    userEl.appendChild(nomUCmp);
-    userEl.appendChild(emailU);
-    userEl.appendChild(num_telU);
-    userEl.appendChild(adresseU);
-    userEl.appendChild(competenceU);
-  }
-genererProfil(user);
+        sectionFiches.appendChild(userEl);
+        userEl.appendChild(nomUCmp);
+        userEl.appendChild(emailU);
+        userEl.appendChild(num_telU);
+        userEl.appendChild(adresseU);
+        userEl.appendChild(competenceU);
+        }
+    }
+    genererProfil(users);
 });
