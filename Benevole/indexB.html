@@ -5,17 +5,6 @@
 		<title>Accueil</title>
 		<link rel="stylesheet" href="../style.css">
 		<script type="module" src="../evenements.js"></script>
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-			  var logoutButton = document.getElementById('btn-logout');
-			  logoutButton.addEventListener('click', function() {
-				// Rediriger vers la page de déconnexion
-				localStorage.removeItem('token');
-				localStorage.removeItem('email');
-				window.location.href = 'https://hands-in-hands.onrender.com/';
-			  });
-			});
-			</script>
 	</head>
 	<body>
 		<header>
@@ -24,7 +13,6 @@
 				<ul>
 					<b class="nav-link" href="https://hands-in-hands.onrender.com/Benevole/indexB.html">Accueil</b>
 					<a class="nav-link" href="https://hands-in-hands.onrender.com/Benevole/ProfilBenevole.html">Profil</a>
-					<a class="nav-link btn-logout" href="https://hands-in-hands.onrender.com">DECONNEXION</a>
 				</ul> 
 			</nav>
 		</header>
