@@ -34,16 +34,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         nomUCmp.innerText = user.nomU + ' ' + user.prenomU;
 
         const emailU = document.createElement("h3"); 
-        emailU.innerText = user.emailU;
+        emailU.innerText ='<strong> Adresse Mail : </strong>' + user.emailU;
 
         const num_telU = document.createElement("p");
-        num_telU.innerText = user.num_telU; 
+        num_telU.innerText = '<strong> Numéro de Téléphone : </strong>' +user.num_telU; 
 
         const adresseU = document.createElement("p");
-        adresseU.innerText = user.adresseU;
+        adresseU.innerText = '<strong> Adresse : </strong>' +user.adresseU;
 
         const competenceU = document.createElement("p");
-        competenceU.innerText = user.competenceU;
+        competenceU.innerText = '<strong> Compétence : </strong>' +user.competenceU;
 
         sectionFiches.appendChild(userEl);
         userEl.appendChild(nomUCmp);

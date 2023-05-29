@@ -35,16 +35,16 @@ document.addEventListener('DOMContentLoaded', async function () {
         nomA.innerText = nomA;
 
         const emailA = document.createElement("h3"); 
-        emailA.innerText = user.emailA;
+        emailA.innerText = '<strong> Adresse mail : </strong>' + user.emailA;
 
         const num_telA = document.createElement("p");
-        num_telA.innerText = user.num_telA; 
+        num_telA.innerText = '<strong> Numéro de Téléphone : </strong>' + user.num_telA; 
 
         const adresseA = document.createElement("p");
-        adresseA.innerText = user.adresseA;
+        adresseA.innerText = '<strong> Adresse : </strong>' +user.adresseA;
 
         const descA = document.createElement("p");
-        descA.innerText = user.descA;
+        descA.innerText = '<strong> Description : </strong>' +user.descA;
 
         sectionFiches.appendChild(userEl);
         userEl.appendChild(nomA);
