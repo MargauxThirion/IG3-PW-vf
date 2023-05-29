@@ -19,9 +19,6 @@ function genererEvenements(evenements){
     const evenement = evenements[i];
     const sectionFiches = document.querySelector(".fiches");
     const evenementEl = document.createElement("article");
-    
-    //const imageEl = document.createElement("img");
-    //imageEl.src = evenement.image;
 
     const nomEl = document.createElement("h2"); //le titre
     nomEl.innerText = evenement.nom_association;
@@ -82,7 +79,6 @@ function genererEvenements(evenements){
 
     //Ratachement de nos éléments au DOM
     sectionFiches.appendChild(evenementEl);
-    //evenementEl.appendChild(imageEl);
     evenementEl.appendChild(nomEl);
     evenementEl.appendChild(nomMissionEl);
     evenementEl.appendChild(descriptionEl);
