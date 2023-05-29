@@ -32,19 +32,19 @@ document.addEventListener('DOMContentLoaded', async function () {
         const userEl = document.createElement("article");
 
         const nomA = document.createElement("h2"); 
-        nomA.innerText = nomA;
+        nomA.innerHTML = nomA;
 
         const emailA = document.createElement("h3"); 
-        emailA.innerText = '<strong> Adresse mail : </strong>' + user.emailA;
+        emailA.innerHTML = '<strong> Adresse mail : </strong>' + user.emailA;
 
         const num_telA = document.createElement("p");
-        num_telA.innerText = '<strong> Numéro de Téléphone : </strong>' + user.num_telA; 
+        num_telA.innerHTML = '<strong> Numéro de Téléphone : </strong>' + user.num_telA; 
 
         const adresseA = document.createElement("p");
-        adresseA.innerText = '<strong> Adresse : </strong>' +user.adresseA;
+        adresseA.innerHTML = '<strong> Adresse : </strong>' +user.adresseA;
 
         const descA = document.createElement("p");
-        descA.innerText = '<strong> Description : </strong>' +user.descA;
+        descA.innerHTML = '<strong> Description : </strong>' +user.descA;
 
         sectionFiches.appendChild(userEl);
         userEl.appendChild(nomA);
