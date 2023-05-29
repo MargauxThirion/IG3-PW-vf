@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
     const userA = await reponses.json();
     
-    console.log(user);
+    console.log(userA);
     function genererProfil(userA){
         for (let i = 0; i < userA.length; i++) {
         const user = userA[i];
