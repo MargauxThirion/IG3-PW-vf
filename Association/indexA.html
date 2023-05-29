@@ -4,16 +4,29 @@
 		<meta charset="utf-8">
 		<title>Accueil</title>
 		<link rel="stylesheet" href="../style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<script type="module" src="../evenements.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+			  var logoutButton = document.getElementById('btn-logout');
+			  logoutButton.addEventListener('click', function() {
+				// Rediriger vers la page de déconnexion
+				localStorage.removeItem('token');
+				localStorage.removeItem('email');
+				window.location.href = 'https://hands-in-hands.onrender.com/';
+			  });
+			});
+			</script>
 	</head>
 	<body>
 		<header>
 			<a href="https://hands-in-hands.onrender.com/Association/indexA.html"> <img src="../icon/icon.png" alt="LOGO"></a>
-			<nav>
+			<nav class="d-flex justify-content-between">
 				<ul>
 					<b class="nav-link" href="https://hands-in-hands.onrender.com/Association/indexA.html">Accueil</b>
 					<a class="nav-link" href="https://hands-in-hands.onrender.com/Association/nouvelle-annonce.html">Modification Annonces</a>
 					<a class="nav-link" href="https://hands-in-hands.onrender.com/Association/ProfilAssociation.html">Profil</a>
+					<button id="btn-logout" class="btn btn-outline-secondary ml-auto">Déconnexion</button>
 				</ul> 
 			</nav>
 		</header>
