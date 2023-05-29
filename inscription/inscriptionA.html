@@ -83,7 +83,6 @@
         alert("Les mots de passe ne correspondent pas");
         return;
       }
-      else{
       fetch('https://web-hands-in-hands.onrender.com/userAsso/signup', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -107,7 +106,6 @@
       .catch(error => {
         console.log(error);
       });
-      }
     })
   </script>
 </body>
