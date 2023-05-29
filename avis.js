@@ -15,7 +15,7 @@ export function ajoutListenersAvis() {
     for (let i = 0; i < annoncesEl.length; i++) {
         annoncesEl[i].addEventListener("click", async function (event) {
             const missionId = event.target.dataset.id;
-            const avisEl = annonceEl.querySelector(".btn-avis");
+            const avisEl = annoncesEl.querySelector(".btn-avis");
             if (avisEl) {
                 // Si l'élément d'avis existe déjà, le supprimer
                 avisEl.remove();
