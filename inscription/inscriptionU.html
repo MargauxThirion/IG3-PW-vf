@@ -56,7 +56,8 @@
     <h2>Inscription Bénévole </h2>
     <form id="registration-form">
       <input type="text" id="emailU" placeholder="Email" required>
-      <input type="text" id="passwordU" placeholder="Mot de passe" required>
+      <input type="password" id="passwordU" placeholder="Mot de passe" required>
+      <input type="password" id="passwordU2" placeholder="Confirmer le mot de passe" required>
       <input type="text" id="nomU" placeholder="Nom" required>
       <input type="text" id="prenomU" placeholder="Prénom" required>
       <input type="text" id="adresseU" placeholder="Adresse" required>
@@ -78,6 +79,10 @@
       const competenceU = document.getElementById('competenceU').value;
       // Envoyer une requête POST à la route de votre backend
       console.log(emailU, passwordU, nomU, prenomU, adresseU, competenceU);
+      if (passwordU != document.getElementById('passwordU2').value) {
+        alert("Les mots de passe ne correspondent pas");
+        return;
+      }
       fetch('https://web-hands-in-hands.onrender.com/userBen/signup', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
