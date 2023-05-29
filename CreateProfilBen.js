@@ -41,6 +41,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const competenceU = document.createElement("p");
     competenceU.innerText = user.competenceU;
-  }
 
+    sectionFiches.appendChild(userEl);
+    userEl.appendChild(nomUCmp);
+    userEl.appendChild(emailU);
+    userEl.appendChild(num_telU);
+    userEl.appendChild(adresseU);
+    userEl.appendChild(competenceU);
+  }
+genererProfil(user);
 });

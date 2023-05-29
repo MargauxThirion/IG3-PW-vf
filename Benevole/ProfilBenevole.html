@@ -5,6 +5,7 @@
 		<title>Profil</title>
 		<link rel="stylesheet" href="../styleP.css">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclure jQuery -->
+		<script type="module" src="../CreateProfilBen.js"></script>
 		<header>
 			<a href="https://hands-in-hands.onrender.com/Benevole/indexB.html"> <img src="../icon/icon.png" alt="LOGO" > </a>
 			<nav>
@@ -16,44 +17,7 @@
         </header>
 		<main>
 		<body>
-			<script>
-				function getToken() {
-            		return localStorage.getItem('email');
-					
-        		}
-
-        		// Exemple d'utilisation pour récupérer et afficher le token
-        		$(document).ready(function() {
-           			 var token = getToken();
-           			 if (token) {
-                		console.log('Token:', token);
-						console.log('Mail:', localStorage.getItem('email'));
-						const mail = localStorage.getItem('email');
-                		// Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
-                		$('#tokenValue').text(token);
-           			} else {
-                		console.log('Token non trouvé');
-            		}
-        		});
-
-
-				const mail = localStorage.getItem('email');
-				const encodedEmail = encodeURIComponent(mail);
-				const url = fetch(`https://web-hands-in-hands.onrender.com/userBen/${encodedEmail}`, {
-					method: 'GET',
-				});
-				const userA = url.json();
-				console.log(userA);
-				const annonceEl = event.target.parentElement;
-            	const userEl = document.createElement("av");
-                userEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
-            	annonceEl.appendChild(userEl);
-				localStorage.setItem('email', data.emailU);
-        		localStorage.setItem('token', data.token);
-        		console.log(data);
-        		console.log('localStorage=',localStorage.getItem('emailU'));
-
-			</script>
+			<section class="Profile"></section>
 		</body>
 		</main>
 	</head>
