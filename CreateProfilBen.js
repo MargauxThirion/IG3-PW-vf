@@ -19,10 +19,11 @@ const mail = localStorage.getItem('email');
 const encodedEmail = encodeURIComponent(mail);
 
 document.addEventListener('DOMContentLoaded', async function () {
-    const reponses = await fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
+    const reponses = await fetch(`https://web-hands-in-hands.onrender.com/userBen/${encodedEmail}`, {
     method: "GET",
-  });
-  const user = await reponses.json();
+    });
+    const user = await reponses.json();
+    console.log(user);
   function genererProfil(user){
     const sectionFiches = document.querySelector(".Profile");
     const userEl = document.createElement("article");
