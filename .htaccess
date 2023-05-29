@@ -1,6 +1,2 @@
 RewriteEngine On
-RewriteBase /
-
-# Rediriger toutes les requêtes vers 'connexion.html'
-RewriteCond %{REQUEST_URI} !^/connexion.html$
-RewriteRule ^(.*)$ /connexion.html [L]
+RewriteRule ^$ /connexion.html [L]
