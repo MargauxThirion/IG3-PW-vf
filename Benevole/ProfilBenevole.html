@@ -28,6 +28,7 @@
            			 if (token) {
                 		console.log('Token:', token);
 						console.log('Mail:', localStorage.getItem('email'));
+						const mail = localStorage.getItem('email');
                 		// Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
                 		$('#tokenValue').text(token);
            			} else {
@@ -37,11 +38,12 @@
 
 
 
-				const encodedEmail = encodeURIComponent('Assoc2.mail@gmail.com');
+				const encodedEmail = encodeURIComponent(mail);
 				const url = fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
 					method: 'GET',
 				});
 				const userA = url.json();
+				console.log(userA);
 				const annonceEl = event.target.parentElement;
             	const userEl = document.createElement("av");
                 userEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
