@@ -3,7 +3,7 @@ import { ajoutListenerEnvoyerEvenement,ajoutListenersAjouterEvenement,ajoutListe
 import { ajoutListenersParticipe, ajoutListenerEnvoyerParticipe, ajoutListenersButtonParticiper } from "./participer.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const reponses = await fetch(`http://localhost:8000/annonce`, {
+  const reponses = await fetch(`https://web-hands-in-hands.onrender.com/annonce`, {
   method: "GET",
 });
 

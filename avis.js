@@ -16,7 +16,7 @@ export function ajoutListenersAvis() {
         annoncesEl[i].addEventListener("click", async function (event) {
             const missionId = event.target.dataset.id;
             console.log(missionId);
-            const reponses = await fetch(`http://localhost:8000/avis/mission/${missionId}`, {
+            const reponses = await fetch(`https://web-hands-in-hands.onrender.com/avis/mission/${missionId}`, {
             method: "GET",
             });
             const avis = await reponses.json(); //transforme le json en objet js
@@ -43,7 +43,7 @@ export function ajoutListenerEnvoyerAvis() {
     }
     // conversion de l'objet en JSON
     const avisJSON = JSON.stringify(avis);
-    fetch("http://localhost:8000/avis", {
+    fetch("https://web-hands-in-hands.onrender.com/avis", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: avisJSON,

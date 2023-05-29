@@ -17,7 +17,7 @@ export function ajoutListenersParticipe() {
         annoncesEl[i].addEventListener("click", async function (event) {
             const id = event.target.dataset.id;
             console.log(id);
-            const reponse = await fetch(`http://localhost:8000/participer/mission/${id}`, {
+            const reponse = await fetch(`https://web-hands-in-hands.onrender.com/participer/mission/${id}`, {
             method:"GET",
             });
             const participe = await reponse.json(); //transforme le json en objet js
@@ -42,7 +42,7 @@ export function ajoutListenerEnvoyerParticipe() {
     }
     // conversion de l'objet en JSON
     const participeJSON = JSON.stringify(participe);
-    fetch("http://localhost:8000/participer", {
+    fetch("https://web-hands-in-hands.onrender.com/participer", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: participeJSON,
