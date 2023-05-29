@@ -148,7 +148,9 @@ select {
 	margin: 4px;
 	cursor: pointer;
 }
-
+.hide {
+	display: none;
+}
 .btn-container {
 	display: flex;
 	flex-direction: column;

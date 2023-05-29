@@ -69,12 +69,12 @@ function genererEvenements(evenements){
 
     const avisBouton = document.createElement("button");
     avisBouton.dataset.id = evenement.numero_mission;
-    avisBouton.classList.add("btn-avis");
+    avisBouton.classList.add("btn-avis", "hide");
     avisBouton.textContent = "Afficher les avis";
 
     const ParticipeBouton = document.createElement("button");
     ParticipeBouton.dataset.id = evenement.numero_mission;
-    ParticipeBouton.classList.add("btn-participe");
+    ParticipeBouton.classList.add("btn-participe", "hide");
     ParticipeBouton.textContent = "Participant";
 
     //Ratachement de nos éléments au DOM
