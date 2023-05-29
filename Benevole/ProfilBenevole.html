@@ -37,7 +37,8 @@
 			</div>-->
 			<script>
 				function getToken() {
-            		return localStorage.getItem('token');
+            		return localStorage.getItem('emailU');
+
         		}
 
         		// Exemple d'utilisation pour récupérer et afficher le token
@@ -45,6 +46,7 @@
            			 var token = getToken();
            			 if (token) {
                 		console.log('Token:', token);
+						console.log('Mail:', emailU);
                 		// Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
                 		$('#tokenValue').text(token);
            			} else {
