@@ -22,5 +22,25 @@ document.addEventListener('DOMContentLoaded', async function () {
     const reponses = await fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
     method: "GET",
   });
-
   const user = await reponses.json();
+  function genererProfil(user){
+    const sectionFiches = document.querySelector(".Profile");
+    const userEl = document.createElement("article");
+
+    const nomUCmp = document.createElement("h2"); 
+    nomUCmp.innerText = user.nomU + ' ' + user.prenomU;
+
+    const emailU = document.createElement("h3"); 
+    emailU.innerText = user.emailU;
+
+    const num_telU = document.createElement("p");
+    num_telU.innerText = user.num_telU; 
+
+    const adresseU = document.createElement("p");
+    adresseU.innerText = user.adresseU;
+
+    const competenceU = document.createElement("p");
+    competenceU.innerText = user.competenceU;
+  }
+
+});

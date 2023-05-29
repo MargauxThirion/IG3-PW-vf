@@ -39,7 +39,7 @@
 
 				const mail = localStorage.getItem('email');
 				const encodedEmail = encodeURIComponent(mail);
-				const url = fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
+				const url = fetch(`https://web-hands-in-hands.onrender.com/userBen/${encodedEmail}`, {
 					method: 'GET',
 				});
 				const userA = url.json();
