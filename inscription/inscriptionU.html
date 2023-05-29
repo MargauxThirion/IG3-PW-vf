@@ -51,9 +51,9 @@
     <form id="registration-form">
       <input type="text" id="emailU" placeholder="Email" required>
       <input type="text" id="passwordU" placeholder="Mot de passe" required>
-      <input type="text" id="nomU" placeholder="Nom de l'association" required>
-      <input type="text" id="prenomU" placeholder="Nom de l'association" required>
-      <input type="text" id="adresseU" placeholder="Adresse de l'association" required>
+      <input type="text" id="nomU" placeholder="Nom" required>
+      <input type="text" id="prenomU" placeholder="Prénom" required>
+      <input type="text" id="adresseU" placeholder="Adresse" required>
       <input type="text" id="competenceU" placeholder="Competences" required>
       <button type="submit">S'inscrire</button>
     </form>
@@ -87,7 +87,7 @@
       .then(reponse =>{
         console.log(reponse);
         if(reponse.ok){
-          window.location.href = "../https://hands-in-hands.onrender.com/connexion.html";
+          window.location.href = "../https://hands-in-hands.onrender.com/index.html";
         } else {
           alert("Erreur lors de l'inscription");
         }
