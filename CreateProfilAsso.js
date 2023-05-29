@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const userEl = document.createElement("article");
 
         const nomA = document.createElement("h2"); 
-        nomA.innerHTML = nomA;
+        nomA.innerHTML = user.nomA;
 
         const emailA = document.createElement("h3"); 
         emailA.innerHTML = '<strong> Adresse mail : </strong>' + user.emailA;

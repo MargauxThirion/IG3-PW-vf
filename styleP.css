@@ -1,132 +1,133 @@
 body {
-	max-width: 1200px;
-	margin: auto;
-	padding: 16px;
-	font-family: 'Ascender Sans Mono WGL', Bold;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Ascender Sans Mono WGL', Bold;
     margin: 0;
     padding: 20px;
-  }
-
-
-  header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-bottom: 16px;
-	padding: 8px;
-	background-color: #ddfee4;
-	text-align: center;
-	color: #2dcc9c;
 }
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 8px;
+    background-color: #ddfee4;
+    text-align: center;
+    color: #2dcc9c;
+}
+
 header img {
-	height: 90px;
-	margin-left: 1rem;
+    height: 90px;
+    margin-left: 1rem;
 }
-header h1 {	/* Bandeau de la page */
-	flex-grow: 1;
+
+header h1 {
+    flex-grow: 1;
 }
 
 nav a {
-	color: #2dcc9c;
-	text-decoration: none;
-	text-align: center;
-	font-size: 1.5rem;
-	margin-left: 3rem;
-
+    color: #2dcc9c;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: 3rem;
 }
 
 nav b {
-	color: #1e7b5f;
-	text-decoration: none;
-	text-align: center;
-	font-size: 1.5rem;
-	margin-left: 3rem;
-
+    color: #1e7b5f;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: 3rem;
 }
-  .container {
+
+.main-container {
     max-width: 600px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
+}
+
+h1 {
     text-align: center;
     margin-top: 0;
     color: #1e7b5f;
+}
 
-  }
-  
-  .logo {
+.logo {
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .logo img {
+}
+
+.logo img {
     width: 150px;
-  }
-  
-  .info {
+}
+
+.info {
     margin-bottom: 20px;
-  }
-  
-  .info p {
+}
+
+.info p {
     margin: 5px 0;
-  }
-  
-  .description {
+}
+
+.description {
     margin-bottom: 20px;
-  }
-  .competences {
+}
+
+.competences {
     margin-bottom: 20px;
-  }
-  
-  .competences ul {
+}
+
+.competences ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .competences li {
+}
+
+.competences li {
     margin-bottom: 5px;
-  }
-  .fiches {
-	flex: 1;
-	margin: 8px;
-	font-style: Bold;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 4px;
-}
-.fiches article {	/*cadre des fiches*/
-	border: 1px solid #2dcc9c;
-	padding: 4px;
-	border-radius: 4px;
-	box-shadow: 0px 0px 4px gray;
-}
-.fiches article img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 200px;
-}
-.fiches article h2 { /* Nom de l'association */
-	text-align: center;
-}
-.fiches article h3 { /* Nom de la mission */
-	text-align: center;
-}
-.fiches article p {
-	margin-top: 4px;
-	margin-bottom: 4px;
-	font-style: Bold;
 }
 
-.fiches article ul {
-	margin-top: 4px;
-	margin-bottom: 4px;
-	font-style: Bold;
-	text-align: center;
+.Profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.Profile article {
+    border: 1px solid #2dcc9c;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px gray;
+    margin-bottom: 16px;
+    max-width: 400px;
+}
 
+.Profile article h2,
+.Profile article h3,
+.Profile article p {
+    margin: 8px;
+    text-align: center;
+    color: #1e7b5f;
+}
+
+.btn-logout {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px;
+    background-color: #2dcc9c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #1e7b5f;
+}
