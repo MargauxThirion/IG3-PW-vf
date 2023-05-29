@@ -15,22 +15,16 @@ export function ajoutListenersAvis() {
     for (let i = 0; i < annoncesEl.length; i++) {
         annoncesEl[i].addEventListener("click", async function (event) {
             const missionId = event.target.dataset.id;
-            const avisEl = annoncesEl.querySelector(".btn-avis");
-            if (avisEl) {
-                // Si l'élément d'avis existe déjà, le supprimer
-                avisEl.remove();
-            } else {
-                const reponses = await fetch(`https://web-hands-in-hands.onrender.com/avis/mission/${missionId}`, {
-                method: "GET",
-                });
-                const avis = await reponses.json(); //transforme le json en objet js
-                const annonceEl = event.target.parentElement;
-                const avisEl = document.createElement("av");
-                for (let i = 0; i < avis.length; i++) {
-                    avisEl.innerHTML += `<br>Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
-                }
-                annonceEl.appendChild(avisEl);
+            const reponses = await fetch(`https://web-hands-in-hands.onrender.com/avis/mission/${missionId}`, {
+            method: "GET",
+            });
+            const avis = await reponses.json(); //transforme le json en objet js
+            const annonceEl = event.target.parentElement;
+            const avisEl = document.createElement("av");
+            for (let i = 0; i < avis.length; i++) {
+                avisEl.innerHTML += `<br>Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
             }
+            annonceEl.appendChild(avisEl);
         });
     }
 }
