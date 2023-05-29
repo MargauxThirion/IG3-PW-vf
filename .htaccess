@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^$ /connexion.html [L]
+RewriteRule ^connexion /connexion.html [L]
