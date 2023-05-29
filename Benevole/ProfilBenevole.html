@@ -41,11 +41,9 @@
 				});
 				const userA = await url.json();
 				const annonceEl = event.target.parentElement;
-            	const avisEl = document.createElement("av");
-            for (let i = 0; i < avis.length; i++) {
-                avisEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
-            }
-            annonceEl.appendChild(avisEl);
+            	const userEl = document.createElement("av");
+                userEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
+            	annonceEl.appendChild(userEl);
 
 			</script>
 		</body>
