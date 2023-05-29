@@ -34,6 +34,20 @@
 				</ul>
 			  </div>
 			</div>
+			<script>
+				const encodedEmail = encodeURIComponent('Assoc2.mail@gmail.com');
+				const url = await fetch(`https://web-hands-in-hands.onrender.com/userAsso/${encodedEmail}`, {
+					method: 'GET',
+				});
+				const userA = await url.json();
+				const annonceEl = event.target.parentElement;
+            	const avisEl = document.createElement("av");
+            for (let i = 0; i < avis.length; i++) {
+                avisEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
+            }
+            annonceEl.appendChild(avisEl);
+
+			</script>
 		</body>
 		</main>
 	</head>
