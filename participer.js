@@ -15,14 +15,16 @@ export function ajoutListenersParticipe() {
 
     for (let i = 0; i < annoncesEl.length; i++) {
         annoncesEl[i].addEventListener("click", async function (event) {
-            
             const id = event.target.dataset.id;
-            const reponse = await fetch(`http://localhost:3500/participer/${id}`);
+            console.log(id);
+            const reponse = await fetch(`http://localhost:8000/participer/mission/${id}`, {
+            method:"GET",
+            });
             const participe = await reponse.json(); //transforme le json en objet js
             const annonceEl = event.target.parentElement;
             const participeEl = document.createElement("part");
             for (let i = 0; i < participe.length; i++) {
-                participeEl.innerHTML += `${participe[i].utilisateur}<br>`;
+                participeEl.innerHTML += `<br> <strong>${participe[i].id_user}</strong> participe <br>`;
             }
             annonceEl.appendChild(participeEl);
         });
@@ -40,11 +42,12 @@ export function ajoutListenerEnvoyerParticipe() {
     }
     // conversion de l'objet en JSON
     const participeJSON = JSON.stringify(participe);
-    fetch("http://localhost:3500/participer", {
+    fetch("http://localhost:8000/participer", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(participeJSON),
-}); 
+        body: participeJSON,
+    });
+    setTimeout(function() {location.reload()}, 500); 
 
 });
 }

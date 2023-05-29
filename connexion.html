@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+
+        .container h2 {
+            margin-top: 0;
+        }
+
+        .container p {
+            margin-top: 0;
+        }
+
+        .container input[type="email"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .container button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"> <img src="icon/icon.png" alt="LOGO"></a>
+        <h2>Connexion</h2>
+    </header>
+    <div class="container">
+        <p>Bienvenue sur Hands in Hands !<br>Sur ce site, vous allez pouvoir aider des associations qui ont besoin de vous !</p>
+        <div>Vous êtes ?</div>
+        <button class="tablinks" onclick="openTab(event, 'association')">Une Association</button>
+        <button class="tablinks" onclick="openTab(event, 'benevole')">Un Bénévole</button>
+    </div>
+
+    <!-- Onglet pour la connexion d'une association -->
+    <div id="association" class="tab" style="display: none;">
+        <div class="container">
+            <h2>Connexion - Association</h2>
+            <form id="association-login-form">
+                <label for="emailA">Adresse e-mail:</label>
+                <input type="email" id="emailA" name="emailA" required>
+                <br>
+                <label for="passwordA">Mot de passe:</label>
+                <input type="password" id="passwordA" name="passwordA" required>
+                <br>
+                <input type="submit" value="Se connecter">
+            </form>
+            <p>Vous n'avez pas de compte ? <a href="inscriptionA.html">S'inscrire en tant qu'association</a></p>
+        </div>
+    </div>
+
+    <!-- Onglet pour la connexion d'un bénévole -->
+    <div id="benevole" class="tab" style="display: none;">
+        <div class="container">
+            <h2>Connexion - Bénévole</h2>
+            <form id="benevole-login-form">
+                <label for="emailU">Adresse e-mail:</label>
+                <input type="email" id="emailU" name="emailU" required>
+                <br>
+                <label for="passwordU">Mot de passe:</label>
+                <input type="password" id="passwordU" name="passwordU" required>
+                <br>
+                <input type="submit" value="Se connecter">
+            </form>
+            <p>Vous n'avez pas de compte ? <a href="inscriptionU.html">S'inscrire en tant que bénévole</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour ouvrir l'onglet correspondant
+        function openTab(event, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+
+        // Écouteur d'événement pour le formulaire de connexion de l'association
+        document.getElementById("association-login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var emailA = document.getElementById("emailA").value;
+            var passwordA = document.getElementById("passwordA").value;
+            console.log(emailA + " " + passwordA);
+            fetch('http://localhost:8000/userAsso/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    emailA: emailA,
+                    passwordA: passwordA
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erreur lors de la connexion');
+                }
+            })
+            .then(data => {
+                // Stocker les informations utilisateur dans le local storage ou les cookies
+                localStorage.setItem('userIdA', data.userIdA);
+                localStorage.setItem('token', data.token);
+                // Rediriger vers index.html
+                window.location.href = "./Association/indexA.html";
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Erreur lors de la connexion");
+            });
+        });
+
+        // Écouteur d'événement pour le formulaire de connexion du bénévole
+        document.getElementById("benevole-login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var emailU = document.getElementById("emailU").value;
+            var passwordU = document.getElementById("passwordU").value;
+
+            fetch('http://localhost:8000/userU/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    emailU: emailU,
+                    passwordU: passwordU
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erreur lors de la connexion');
+                }
+            })
+            .then(data => {
+                // Stocker les informations utilisateur dans le local storage ou les cookies
+                localStorage.setItem('userIdU', data.userIdU);
+                localStorage.setItem('token', data.token);
+                // Rediriger vers index.html
+                window.location.href = "./Benevole/indexB.html";
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Erreur lors de la connexion");
+            });
+        });
+    </script>
+</body>
+</html>

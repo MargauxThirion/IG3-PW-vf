@@ -16,14 +16,14 @@ export function ajoutListenersAvis() {
         annoncesEl[i].addEventListener("click", async function (event) {
             const missionId = event.target.dataset.id;
             console.log(missionId);
-            const reponses = await fetch(`http://localhost:3500/avis/mission/${missionId}`, {
+            const reponses = await fetch(`http://localhost:8000/avis/mission/${missionId}`, {
             method: "GET",
             });
             const avis = await reponses.json(); //transforme le json en objet js
             const annonceEl = event.target.parentElement;
             const avisEl = document.createElement("av");
             for (let i = 0; i < avis.length; i++) {
-                avisEl.innerHTML += `Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
+                avisEl.innerHTML += `<br>Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
             }
             annonceEl.appendChild(avisEl);
         });
@@ -43,11 +43,14 @@ export function ajoutListenerEnvoyerAvis() {
     }
     // conversion de l'objet en JSON
     const avisJSON = JSON.stringify(avis);
-    fetch("http://localhost:3500/avis", {
+    fetch("http://localhost:8000/avis", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: avisJSON,
-}); 
+    }); 
+    setTimeout(function() {
+        location.reload();
+      }, 500);
 
 });
 }

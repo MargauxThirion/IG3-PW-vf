@@ -51,7 +51,7 @@ export async function ajoutListenerEnvoyerEvenement() {
       };
     // conversion de l'objet en JSON
       const Json = JSON.stringify(evenement);
-      await fetch("http://localhost:3500/annonce", {
+      await fetch("http://localhost:8000/annonce", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: Json,
@@ -75,7 +75,7 @@ export function ajoutListenerSupprimerEvenement() {
     // Récupération de l'id de l'avis à supprimer
     const numero_mission = parseInt(event.target.elements.numero_mission.value) 
     // Suppression de l'avis 
-    fetch(`http://localhost:3500/annonce/${numero_mission}`, {
+    fetch(`http://localhost:8000/annonce/${numero_mission}`, {
       method: "DELETE"
       })
     .then(response => {

@@ -22,7 +22,7 @@
       text-align: center;
     }
 
-    .container input[type="text"],
+    .container input[type="email"],
     .container input[type="password"] {
       width: 100%;
       padding: 12px;
@@ -45,30 +45,49 @@
 </head>
 <body>
   <div class="container">
-    <h2>Authentification</h2>
+    <h2>Connexion</h2>
     <form id="login-form">
-      <input type="text" id="username" placeholder="Nom d'utilisateur" required>
-      <input type="password" id="password" placeholder="Mot de passe" required>
-      <button type="submit">Se connecter</button>
+      <label for="emailA">Adresse e-mail:</label>
+      <input type="email" id="emailA" name="emailA" required>
+      <br>
+      <label for="passwordA">Mot de passe:</label>
+      <input type="password" id="passwordA" name="passwordA" required>
+      <br>
+      <input type="submit" value="Se connecter">
     </form>
     <p>Vous n'avez pas de compte ? <a href="inscriptionA.html">S'inscrire</a></p>
-  </div>
-
   <script>
     document.getElementById("login-form").addEventListener("submit", function(event) {
       event.preventDefault();
       
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      // Vérification des informations d'identification
-      if (username === "admin" && password === "password") {
-        alert("Authentification réussie !");
-        // Redirection vers la page suivante
+      var emailA = document.getElementById("emailA").value;
+      var passwordA = document.getElementById("passwordA").value;
+      fetch('http://localhost:8000/userAsso/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          emailA: emailA,
+          passwordA: passwordA
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Erreur lors de la connexion');
+        }
+      })
+      .then(data => {
+        // Stocker les informations utilisateur dans le local storage ou les cookies
+        localStorage.setItem('userIdA', data.userIdA);
+        localStorage.setItem('token', data.token);
+        // Rediriger vers index.html
         window.location.href = "index.html";
-      } else {
-        alert("Nom d'utilisateur ou mot de passe incorrect !");
-      }
+      })
+      .catch(error => {
+        console.log(error);
+        alert("Erreur lors de la connexion");
+      });
     });
   </script>
 </body>

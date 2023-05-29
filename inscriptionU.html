@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription</title>
+  <title>Inscription Bénévole</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,14 +47,14 @@
 </head>
 <body>
   <div class="container">
-    <h2>Inscription Association</h2>
+    <h2>Inscription Bénévole </h2>
     <form id="registration-form">
-      <input type="text" id="emailA" placeholder="Email" required>
-      <input type="text" id="passwordA" placeholder="Mot de passe" required>
-      <input type="text" id="nomA" placeholder="Nom de l'association" required>
-      <input type="text" id="adresseA" placeholder="Adresse de l'association" required>
-      <input type="text" id="num_telA" placeholder="Numéro de téléphone" required>
-      <textarea id="descA" placeholder="Description" required></textarea>
+      <input type="text" id="emailU" placeholder="Email" required>
+      <input type="text" id="passwordU" placeholder="Mot de passe" required>
+      <input type="text" id="nomU" placeholder="Nom de l'association" required>
+      <input type="text" id="prenomU" placeholder="Nom de l'association" required>
+      <input type="text" id="adresseU" placeholder="Adresse de l'association" required>
+      <input type="text" id="competenceU" placeholder="Competences" required>
       <button type="submit">S'inscrire</button>
     </form>
   </div>
@@ -64,24 +64,24 @@
       event.preventDefault();
       console.log("Inscription en cours...");
       // Préparer les données à envoyer dans la requête
-      const emailA = document.getElementById('emailA').value;
-      const passwordA = document.getElementById('passwordA').value;
-      const nomA = document.getElementById('nomA').value;
-      const adresseA = document.getElementById('adresseA').value;
-      const num_telA = document.getElementById('num_telA').value;
-      const descA = document.getElementById('descA').value;
+      const emailU = document.getElementById('emailU').value;
+      const passwordU = document.getElementById('passwordU').value;
+      const nomU = document.getElementById('nomU').value;
+      const prenomU = document.getElementById('prenomU').value;
+      const adresseU = document.getElementById('adresseU').value;
+      const competenceU = document.getElementById('competenceU').value;
       // Envoyer une requête POST à la route de votre backend
-      console.log(emailA, passwordA, nomA, adresseA, num_telA, descA);
-      fetch('http://localhost:8000/userAsso/signup', {
+      console.log(emailU, passwordU, nomU, prenomU, adresseU, competenceU);
+      fetch('http://localhost:8000/userU/signup', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          emailA: emailA,
-          passwordA: passwordA,
-          nomA: nomA,
-          adresseA: adresseA,
-          num_telA: num_telA,
-          descA: descA,
+            emailU: emailU,
+            passwordU: passwordU,
+            nomU: nomU,
+            prenomU: prenomU,
+            adresseU: adresseU,
+            competenceU: competenceU,
         })
       })
       .then(reponse =>{
