@@ -72,7 +72,7 @@
       const competenceU = document.getElementById('competenceU').value;
       // Envoyer une requête POST à la route de votre backend
       console.log(emailU, passwordU, nomU, prenomU, adresseU, competenceU);
-      fetch('http://localhost:8000/userU/signup', {
+      fetch('https://web-hands-in-hands.onrender.com/userU/signup', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -87,7 +87,7 @@
       .then(reponse =>{
         console.log(reponse);
         if(reponse.ok){
-          window.location.href = "../connexion.html";
+          window.location.href = "../https://hands-in-hands.onrender.com/connexion.html";
         } else {
           alert("Erreur lors de l'inscription");
         }

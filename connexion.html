@@ -53,7 +53,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"> <img src="icon/icon.png" alt="LOGO"></a>
+        <a href="https://hands-in-hands.onrender.com/index.html"> <img src="https://hands-in-hands.onrender.com/icon/icon.png" alt="LOGO"></a>
         <h2>Connexion</h2>
     </header>
     <div class="container">
@@ -76,7 +76,7 @@
                 <br>
                 <input type="submit" value="Se connecter">
             </form>
-            <p>Vous n'avez pas de compte ? <a href="./inscription/inscriptionA.html">S'inscrire en tant qu'association</a></p>
+            <p>Vous n'avez pas de compte ? <a href="https://hands-in-hands.onrender.com/inscription/inscriptionA.html">S'inscrire en tant qu'association</a></p>
         </div>
     </div>
 
@@ -93,7 +93,7 @@
                 <br>
                 <input type="submit" value="Se connecter">
             </form>
-            <p>Vous n'avez pas de compte ? <a href="./inscription/inscriptionU.html">S'inscrire en tant que bénévole</a></p>
+            <p>Vous n'avez pas de compte ? <a href="https://hands-in-hands.onrender.com/inscription/inscriptionU.html">S'inscrire en tant que bénévole</a></p>
         </div>
     </div>
 
@@ -120,7 +120,7 @@
             var emailA = document.getElementById("emailA").value;
             var passwordA = document.getElementById("passwordA").value;
             console.log(emailA + " " + passwordA);
-            fetch('http://localhost:8000/userAsso/login', {
+            fetch('https://web-hands-in-hands.onrender.com/userAsso/login', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -140,7 +140,7 @@
                 localStorage.setItem('userIdA', data.userIdA);
                 localStorage.setItem('token', data.token);
                 // Rediriger vers index.html
-                window.location.href = "./Association/indexA.html";
+                window.location.href = "https://hands-in-hands.onrender.com/Association/indexA.html";
             })
             .catch(error => {
                 console.log(error);
@@ -155,7 +155,7 @@
             var emailU = document.getElementById("emailU").value;
             var passwordU = document.getElementById("passwordU").value;
 
-            fetch('http://localhost:8000/userU/login', {
+            fetch('https://web-hands-in-hands.onrender.com/userU/login', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -175,7 +175,7 @@
                 localStorage.setItem('userIdU', data.userIdU);
                 localStorage.setItem('token', data.token);
                 // Rediriger vers index.html
-                window.location.href = "./Benevole/indexB.html";
+                window.location.href = "https://hands-in-hands.onrender.com/Benevole/indexB.html";
             })
             .catch(error => {
                 console.log(error);
