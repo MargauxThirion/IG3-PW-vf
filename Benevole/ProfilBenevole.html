@@ -13,6 +13,7 @@
 				// Rediriger vers la page de déconnexion
 				localStorage.removeItem('token');
 				localStorage.removeItem('email');
+				localStorage.clear();
 				window.location.href = 'https://hands-in-hands.onrender.com/';
 			  });
 			});
