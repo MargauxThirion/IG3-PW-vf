@@ -6,6 +6,17 @@
 		<link rel="stylesheet" href="../styleP.css">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Inclure jQuery -->
 		<script type="module" src="../CreateProfilAsso.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+			  var logoutButton = document.getElementById('btn-logout');
+			  logoutButton.addEventListener('click', function() {
+				// Rediriger vers la page de déconnexion
+				localStorage.removeItem('token');
+				localStorage.removeItem('email');
+				window.location.href = 'https://hands-in-hands.onrender.com/';
+			  });
+			});
+		</script>
 		<header>
 			<a href="https://hands-in-hands.onrender.com/Association/indexA.html"> <img src="../icon/icon.png" alt="LOGO" > </a>
 			<nav>
@@ -17,10 +28,11 @@
             </nav>    
         </header>
         <main>
-			<body>
-				<section class="Profile"></section>
-			</body>
-			  
+			<div>
+				<section class="fiches"></section>
+					<section class="Profile"></section>
+			</div>
+			<a class="nav-link btn-logout" href="https://hands-in-hands.onrender.com">DECONNEXION</a>
 		</main>
 	</head>
 	<body>
