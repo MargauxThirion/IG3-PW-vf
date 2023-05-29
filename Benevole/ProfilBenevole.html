@@ -15,30 +15,11 @@
             </nav>    
         </header>
 		<main>
-		<body><!--
-			<div class="container">
-			  <h1>Profil du Bénévole</h1>
-			  
-			  <div class="info">
-				<p><strong>Email:</strong> volontaire@exemple.com</p>
-				<p><strong>Nom:</strong> Dupont</p>
-				<p><strong>Prénom:</strong> Jean</p>
-				<p><strong>Adresse:</strong> 123 Rue des Volontaires, Ville, Pays</p>
-			  </div>
-			  
-			  <div class="competences">
-				<h2>Compétences</h2>
-				<ul>
-				  <li>Compétence 1</li>
-				  <li>Compétence 2</li>
-				  <li>Compétence 3</li>
-				</ul>
-			  </div>
-			</div>-->
+		<body>
 			<script>
 				function getToken() {
-            		return localStorage.getItem('emailU');
-
+            		return localStorage.getItem('token');
+					
         		}
 
         		// Exemple d'utilisation pour récupérer et afficher le token
@@ -46,7 +27,7 @@
            			 var token = getToken();
            			 if (token) {
                 		console.log('Token:', token);
-						console.log('Mail:', emailU);
+						console.log('Mail:', localStorage.getItem('emailU'));
                 		// Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
                 		$('#tokenValue').text(token);
            			} else {
@@ -65,6 +46,10 @@
             	const userEl = document.createElement("av");
                 userEl.innerHTML += ` <strong>${userA[i].nomA}</strong> ${userA[i].emailA} <br>  ${userA[i].adresseA}<br>${userA[i].adresseA} <br>${userA[i].num_telA}`;
             	annonceEl.appendChild(userEl);
+				localStorage.setItem('emailU', data.emailU);
+        		localStorage.setItem('token', data.token);
+        		console.log(data);
+        		console.log('localStorage=',localStorage.getItem('emailU'));
 
 			</script>
 		</body>
