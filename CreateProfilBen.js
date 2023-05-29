@@ -15,7 +15,7 @@ $(document).ready(function() {
             console.log('Token non trouvé');
         }
 });
-
+const mail = localStorage.getItem('email');
 const encodedEmail = encodeURIComponent(mail);
 
 document.addEventListener('DOMContentLoaded', async function () {
