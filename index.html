@@ -137,7 +137,7 @@
             })
             .then(data => {
                 // Stocker les informations utilisateur dans le local storage ou les cookies
-                localStorage.setItem('userIdA', data.userIdA);
+                localStorage.setItem('email', data.email);
                 localStorage.setItem('token', data.token);
                 // Rediriger vers index.html
                 window.location.href = "https://hands-in-hands.onrender.com/Association/indexA.html";
