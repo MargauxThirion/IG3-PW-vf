@@ -172,10 +172,11 @@
             })
             .then(data => {
                 // Stocker les informations utilisateur dans le local storage ou les cookies
-                localStorage.setItem('userIdU', data.userIdU);
+                localStorage.setItem('emailU', data.emailU);
                 localStorage.setItem('token', data.token);
+                console.log(data);
                 // Rediriger vers index.html
-                //window.location.href = "https://hands-in-hands.onrender.com/Benevole/indexB.html";
+                window.location.href = "https://hands-in-hands.onrender.com/Benevole/indexB.html";
             })
             .catch(error => {
                 console.log(error);
