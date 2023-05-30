@@ -24,10 +24,10 @@ function genererEvenements(evenements){
     nomEl.innerText = evenement.nom_association;
 
     const nomMissionEl = document.createElement("h3"); //le titre de la mission
-    nomMissionEl.innerText = 'Mission '+ evenement.numero_mission + ' : ' + evenement.nom_mission;
+    nomMissionEl.innerHTML = '<strong> Mission </strong>'+ evenement.numero_mission + ' : ' + evenement.nom_mission;
 
     const descriptionEl = document.createElement("p"); //la description
-    descriptionEl.innerText = evenement.desc;
+    descriptionEl.innerHTML ='<strong> Description : </strong>' + evenement.desc;
 
     const dateEl = document.createElement("p"); // Élément pour afficher la date
     const dateDebut = new Date(evenement.date); // Convertit la date en objet Date
