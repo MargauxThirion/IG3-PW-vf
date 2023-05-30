@@ -27,7 +27,7 @@ function genererEvenements(evenements){
     nomMissionEl.innerHTML = '<strong> Mission </strong>'+ evenement.numero_mission + ' : ' + evenement.nom_mission;
 
     const descriptionEl = document.createElement("p"); //la description
-    descriptionEl.innerHTML ='<strong> Description : </strong>' + evenement.desc;
+    descriptionEl.innerHTML ='<strong> Description: </strong>' + evenement.desc;
 
     const dateEl = document.createElement("p"); // Élément pour afficher la date
     const dateDebut = new Date(evenement.date); // Convertit la date en objet Date
@@ -36,13 +36,13 @@ function genererEvenements(evenements){
     const mois = String(dateDebut.getMonth() + 1).padStart(2, "0"); // Récupère le mois avec deux chiffres (ajoute un zéro si nécessaire)
     const annee = dateDebut.getFullYear(); // Récupère l'année
     const dateFormatee = jour + "-" + mois + "-" + annee; // Formatage final de la date
-    dateEl.innerText = "Date début: " + dateFormatee;
+    dateEl.innerHTML = "<strong> Date début: </strong> " + dateFormatee;
 
     const dureeEl = document.createElement("p"); //la durée
-    dureeEl.innerText = 'Durée: ' + evenement.duree + ' heures';
+    dureeEl.innerHTML = '<strong> Durée:</strong> ' + evenement.duree + ' heures';
     
     const nbr_benevoleEl = document.createElement("p"); //le nombre de bénévole
-    nbr_benevoleEl.innerText = 'Nombre de personne nécessaire : ' + evenement.nbr_benevole;
+    nbr_benevoleEl.innerHTML = '<strong>Nombre de personne nécessaire : </strong>' + evenement.nbr_benevole;
     
     const competencesEl = document.createElement("p"); // les compétences
     const competenceValue = evenements[i].competence;
@@ -60,11 +60,11 @@ function genererEvenements(evenements){
         break;
       default:competenceText = competenceValue;
     }
-    competencesEl.innerText = 'Compétence nécessaire : ' + competenceText;
+    competencesEl.innerHTML = '<strong> Compétence nécessaire : </strong>' + competenceText;
     
     const adresseEl = document.createElement("p"); //l'adresse
     const paysEnMajuscules = evenement.pays.toUpperCase(); // Met le pays en majuscules
-    adresseEl.innerText = 'Adresse : ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + paysEnMajuscules;
+    adresseEl.innerHTML = '<strong>Adresse :</strong> ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + paysEnMajuscules;
 
 
     const avisBouton = document.createElement("button");
