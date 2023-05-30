@@ -119,7 +119,6 @@
 
             var emailA = document.getElementById("emailA").value;
             var passwordA = document.getElementById("passwordA").value;
-            console.log(emailA + " " + passwordA);
             fetch('https://web-hands-in-hands.onrender.com/userAsso/login', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -174,10 +173,6 @@
                 // Stocker les informations utilisateur dans le local storage ou les cookies
                 localStorage.setItem('email', data.email);
                 localStorage.setItem('token', data.token);
-                console.log(data);
-                console.log('localStorage=',localStorage.getItem('email'));
-                // Rediriger vers index.html
-                //window.location.href = "https://hands-in-hands.onrender.com/Benevole/indexB.html";
                     // Redirect to indexB.html
                     window.location.href = "https://hands-in-hands.onrender.com/Benevole/indexB.html";
             })
