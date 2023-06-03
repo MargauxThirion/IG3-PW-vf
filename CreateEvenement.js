@@ -120,7 +120,7 @@ export function ajoutListenerSupprimerEvenement() {
 }
 
 
-export async function ajoutListenerModifierEvenement() {
+export async function ajoutListenersModifierEvenement() {
   const formulaireEvenement = document.querySelector(".formulaire-modifier-ev");
   formulaireEvenement.addEventListener("submit", async function (event) {
     event.preventDefault(); // Empêche le rechargement de la page
