@@ -131,3 +131,75 @@ h1 {
 .btn-logout:hover {
     background-color: #1e7b5f;
 }
+
+
+.filtres {	/*cadre des filtres*/
+	border-radius: 4px;
+	box-shadow: 0px 0px 4px gray;
+	margin: 8px;
+	padding: 8px;
+	min-width: 300px;
+	min-height: 400px;
+	font-style: Bold;
+}
+
+.filtres h3 { /* Titre des filtres */
+	text-align: center;
+	font-style: Bold;
+}
+
+.filtres h4 { /* Titre Adresse */
+	text-align: center;
+	font-style: Bold;
+	font-size: large;
+}
+
+select {
+	font-size: 15px;
+	padding: 5px;
+	border-radius: 4px;
+	background-color: white;
+}
+
+  
+
+.fiches {
+	flex: 1;
+	margin: 8px;
+	font-style: Bold;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+}
+
+
+.fiches article {	/*cadre des fiches*/
+	border: 1px solid #2dcc9c;
+	padding: 4px;
+	border-radius: 4px;
+	box-shadow: 0px 0px 4px gray;
+}
+.fiches article img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 200px;
+}
+.fiches article h2 { /* Nom de l'association */
+	text-align: center;
+}
+.fiches article h3 { /* Nom de la mission */
+	text-align: center;
+}
+.fiches article p {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-style: Bold;
+}
+
+.fiches article ul {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-style: Bold;
+	text-align: center;
+}
