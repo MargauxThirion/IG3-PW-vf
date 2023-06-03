@@ -54,8 +54,6 @@ export async function ajoutListenerEnvoyerEvenement() {
     
   try {
     const maxNumeroMission = await trouverAnnonceMaxNumeroMission();
-    const selectedOption = event.target.elements.image.options[event.target.elements.image.selectedIndex];
-    const imagePath = selectedOption.getAttribute('data-image');
     // création d'un nouvel objet avis 
     const evenement = {
         nom_association: nom,
@@ -71,7 +69,7 @@ export async function ajoutListenerEnvoyerEvenement() {
         ville: event.target.elements.ville.value,
         code_postal: event.target.elements.code_postal.value,
         rue: event.target.elements.rue.value,
-        image:imagePath,
+        image:event.target.elements.image.value,
       };
     // conversion de l'objet en JSON
       const Json = JSON.stringify(evenement);
