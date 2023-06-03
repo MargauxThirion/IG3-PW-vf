@@ -145,7 +145,7 @@ export async function ajoutListenerModifierEvenement() {
       };
 
       const Json = JSON.stringify(evenement);
-      await fetch(`https://web-hands-in-hands.onrender.com/annonce/${idAnnonce}`, { // Utilise l'URL avec l'identifiant de l'annonce
+      await fetch(`https://web-hands-in-hands.onrender.com/annonce/mission/${idAnnonce}`, { // Utilise l'URL avec l'identifiant de l'annonce
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: Json,
