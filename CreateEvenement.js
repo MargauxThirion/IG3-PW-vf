@@ -69,7 +69,6 @@ export async function ajoutListenerEnvoyerEvenement() {
         ville: event.target.elements.ville.value,
         code_postal: event.target.elements.code_postal.value,
         rue: event.target.elements.rue.value,
-        image:event.target.elements.image.value,
       };
     // conversion de l'objet en JSON
       const Json = JSON.stringify(evenement);
