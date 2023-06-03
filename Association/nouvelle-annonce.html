@@ -2,6 +2,15 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
+		<style>
+			.container textarea {
+      			width: 100%;
+      			padding: 12px;
+      			margin-bottom: 10px;
+      			border: 1px solid #ccc;
+      			box-sizing: border-box;
+    }
+		</style>
 		<title>Nouvelle Annonce</title>
 		<link rel="stylesheet" href="../style.css">
 		<script type="module" src="../evenements.js"></script>
@@ -42,7 +51,7 @@
 							<input type="text" name="nom_mission"><br>
 							<input type="hidden" name="numero_mission">
 							Description :<br>
-							<textarea type="text" name="desc"><br>
+							<textarea name="desc"><br>
 							Date début :<br>
 							<input type="date" name="date"><br>
 							Durée : <em>(en heures)</em><br>
