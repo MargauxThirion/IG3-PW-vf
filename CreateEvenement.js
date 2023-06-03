@@ -23,6 +23,27 @@ export function ajoutListenersSupprEvenement() {
     });
 }
 
+function getToken() {
+  return localStorage.getItem('email');
+}
+
+// Exemple d'utilisation pour récupérer et afficher le token
+document.addEventListener('DOMContentLoaded', function() {
+  var token = getToken();
+  if (token) {
+      console.log('Mail:', localStorage.getItem('email'));
+      var tokenValueElement = document.getElementById('tokenValue');
+      if (tokenValueElement) {
+          tokenValueElement.textContent = token;
+      }
+  } else {
+      console.log('Token non trouvé');
+  }
+});
+
+const mail = localStorage.getItem('email');
+const encodedEmail = encodeURIComponent(mail);
+
 export async function ajoutListenerEnvoyerEvenement() {
   const formulaireEvenement = document.querySelector(".formulaire-evenement");
   formulaireEvenement.addEventListener("submit", async function (event) {
@@ -38,6 +59,7 @@ export async function ajoutListenerEnvoyerEvenement() {
         nom_association: event.target.elements.nom_association.value,
         nom_mission: event.target.elements.nom_mission.value,
         numero_mission: maxNumeroMission + 1,
+        email: mail,
         desc: event.target.elements.desc.value,
         date: event.target.elements.date.value,
         duree: event.target.elements.duree.value,
