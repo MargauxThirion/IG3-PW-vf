@@ -57,20 +57,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     method: "GET",
     });
 
-    const users = await reponses.json();
-    for (let i = 0; i < users.length; i++) {
-        console.log('user.length = ',users.length);
-        console.log('user[i] = ',users[i]);
-        const User = JSON.stringify(users[i]);
-        const annonces = await fetch (`https://web-hands-in-hands.onrender.com/annonce/mission/${User}`, {
+    const annonces = await reponses.json();
+    for (let i = 0; i < annonces.length; i++) {
+        console.log('user.length = ',annonces.length);
+        console.log('user[i] = ',annonces[i]);
+        const User = JSON.stringify(annonces[i]);
+        const annonce = await fetch (`https://web-hands-in-hands.onrender.com/annonce/mission/${User}`, {
             method: "GET",
         });
-        const evenements = await annonces.json();
+        const evenements = await annonce.json();
         console.log('resultat du fetch : ',evenements);
         function genererAnnonce(evenements){
         for (let j = 0; j < evenements.length; j++) {
             const evenement = evenements[j];
-        
+            console.log('je suis là, evenement = ',evenement);
             const sectionFiches = document.querySelector(".fiches");
             const evenementEl = document.createElement("article");
 
