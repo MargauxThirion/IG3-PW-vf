@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         const annonces = await fetch (`https://web-hands-in-hands.onrender.com/annonce/mission/${User}`, {
             method: "GET",
         });
-        console.log('resultat du fetch : ',annonces);
         const evenements = await annonces.json();
+        console.log('resultat du fetch : ',evenements);
         for (let j = 0; j < evenements.length; j++) {
             const evenement = evenements[j];
         
