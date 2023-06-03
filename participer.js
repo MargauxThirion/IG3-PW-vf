@@ -30,6 +30,24 @@ export function ajoutListenersParticipe() {
         });
     }
 }
+function getToken() {
+    return localStorage.getItem('email');
+}
+
+$(document).ready(function() {
+        var token = getToken();
+        if (token) {
+            console.log('Token:', token);
+            console.log('Mail:', localStorage.getItem('email'));
+            const mail = localStorage.getItem('email');
+        // Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
+        $('#tokenValue').text(token);
+       } else {
+            console.log('Token non trouvé');
+        }
+});
+const mail = localStorage.getItem('email');
+//const encodedEmail = encodeURIComponent(mail);
 
 export function ajoutListenerEnvoyerParticipe() {
     const formulaireParticipe = document.querySelector(".formulaire-participer");
@@ -38,7 +56,7 @@ export function ajoutListenerEnvoyerParticipe() {
     // création d'un nouvel objet avis 
     const participe = {
         missionId: parseInt(event.target.elements.missionId.value), // querySelector permet de récupérer un élément du DOM
-        id_user: event.target.elements.id_user.value,
+        id_user: mail,
     }
     // conversion de l'objet en JSON
     const participeJSON = JSON.stringify(participe);
