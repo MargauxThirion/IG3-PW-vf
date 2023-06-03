@@ -23,6 +23,18 @@ export function ajoutListenersSupprEvenement() {
     });
 }
 
+export function ajoutListenerModifEvenement() {
+  var boutonModif = document.getElementById('btn-annonce-modif');
+  var formulaireContainer = document.querySelector('.formulaire-container-modif');
+  boutonModif.addEventListener('click', function() {
+    if (formulaireContainer.style.display === 'none') {
+      formulaireContainer.style.display = 'block';
+    } else {
+      formulaireContainer.style.display = 'none';
+    }
+  });
+}
+
 function getToken() {
   return localStorage.getItem('email');
 }

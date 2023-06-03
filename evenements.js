@@ -1,5 +1,5 @@
 import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, ajoutListenersButtonAvis } from "./avis.js";
-import { ajoutListenerEnvoyerEvenement,ajoutListenersAjouterEvenement,ajoutListenersSupprEvenement, ajoutListenerSupprimerEvenement, ajoutListenerModifierEvenement } from "./CreateEvenement.js";
+import { ajoutListenerEnvoyerEvenement,ajoutListenersAjouterEvenement,ajoutListenersSupprEvenement, ajoutListenerSupprimerEvenement,ajoutListenerModifEvenement, ajoutListenerModifierEvenement } from "./CreateEvenement.js";
 import { ajoutListenersParticipe, ajoutListenerEnvoyerParticipe, ajoutListenersButtonParticiper } from "./participer.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -94,13 +94,14 @@ function genererEvenements(evenements){
   ajoutListenersAvis();
   ajoutListenersParticipe();
   ajoutListenerSupprimerEvenement();
-  ajoutListeners
+  ajoutListenerModifierEvenement();
 }
 genererEvenements(evenements);
 ajoutListenersButtonAvis();
 ajoutListenersButtonParticiper();
 ajoutListenersAjouterEvenement();
 ajoutListenersSupprEvenement();
+ajoutListenersModifEvenement();
 
 
 
