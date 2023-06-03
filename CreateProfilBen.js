@@ -63,9 +63,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const users = await reponses.json();
     for (let i = 0; i < users.length; i++) {
+        console.log(users[i]);
         const annonces = await fetch (`https://web-hands-in-hands.onrender.com/annonce/mission/${users[i]}`, {
             method: "GET",
         });
+        console.log(annonces);
         const evenements = await annonces.json();
         for (let j = 0; i < evenements.length; j++) {
             const evenement = evenements[j];

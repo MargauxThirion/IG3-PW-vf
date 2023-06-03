@@ -8,16 +8,16 @@
 		<script type="module" src="../CreateProfilBen.js"></script>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-			  var logoutButton = document.getElementById('btn-logout');
-			  logoutButton.addEventListener('click', function() {
-				// Rediriger vers la page de déconnexion
-				localStorage.removeItem('token');
-				localStorage.removeItem('email');
-				localStorage.clear();
-				localStorage.setItem('token', null);
-				localStorage.setItem('email', null);
-				window.location.href = 'https://hands-in-hands.onrender.com/';
-			  });
+				var logoutButton = document.getElementById('btn-logout');
+				logoutButton.addEventListener('click', function() {
+					// Rediriger vers la page de déconnexion
+					localStorage.removeItem('token');
+					localStorage.removeItem('email');
+					localStorage.clear();
+					localStorage.setItem('token', null);
+					localStorage.setItem('email', null);
+					window.location.href = 'https://hands-in-hands.onrender.com/';
+			  	});
 			});
 		</script>
 		
