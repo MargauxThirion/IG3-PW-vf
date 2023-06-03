@@ -178,6 +178,10 @@ select {
 	display: none;
 }
 
+.formulaire-container-modif{
+	display: none;
+}
+
 .formulaire-container-avis{
 	display: none;
 }
@@ -191,6 +195,11 @@ select {
 }
 .btn-annonce-suppr:focus + .formulaire-container-suppr,
 .btn-annonce-suppr:hover + .formulaire-container-suppr{
+	display: block;
+}
+
+.btn-annonce-modif:focus + .formulaire-container-modif,
+.btn-annonce-modif:hover + .formulaire-container-modif{
 	display: block;
 }
 

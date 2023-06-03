@@ -108,14 +108,13 @@ export function ajoutListenerSupprimerEvenement() {
 }
 
 
-export async function ajoutListenerEnvoyerEvenement() {
+export async function ajoutListenerModifierEvenement() {
   const formulaireEvenement = document.querySelector(".formulaire-modifier-ev");
   formulaireEvenement.addEventListener("submit", async function (event) {
     event.preventDefault(); // Empêche le rechargement de la page
 
     try {
-      const idAnnonce = formulaireEvenement.getAttribute("numero_mission"); // Récupère l'identifiant de l'annonce
-
+      const idAnnonce = document.querySelector("#numero_mission").value; // Récupère l'identifiant de l'annonce
 
       const evenement = {
         nom_association: nom,
