@@ -6,10 +6,7 @@ function getToken() {
 $(document).ready(function() {
         var token = getToken();
         if (token) {
-            console.log('Token:', token);
             console.log('Mail:', localStorage.getItem('email'));
-            const mail = localStorage.getItem('email');
-        // Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
         $('#tokenValue').text(token);
        } else {
             console.log('Token non trouvé');
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     method: "GET",
     });
     const users = await reponses.json();
-    console.log(users);
     function genererProfil(users){
         for (let i = 0; i < users.length; i++) {
             const user = users[i];
@@ -63,11 +59,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const users = await reponses.json();
     for (let i = 0; i < users.length; i++) {
-        console.log(users[i]);
+        console.log('user[i] = ',users[i]);
         const annonces = await fetch (`https://web-hands-in-hands.onrender.com/annonce/mission/${users[i]}`, {
             method: "GET",
         });
-        console.log(annonces);
+        console.log('resultat du fetch : ',annonces);
         const evenements = await annonces.json();
         for (let j = 0; i < evenements.length; j++) {
             const evenement = evenements[j];
