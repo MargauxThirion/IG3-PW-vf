@@ -86,6 +86,43 @@
 							<button id="envoyer" style="background-color: #ddfee4; border:#ddfee4 ; border-radius: 10px;">Envoyer</button>
 						</form>
 					</div>
+					<button id="btn-annonce-modif" class="btn-menu">Modifier un évènement</button>
+					<div class="formualire-container-modif">
+						<form class="formualire-modifier-ev">
+							Numéro d'annonce à modifier :<br>
+							<input type="number" name="numero_mission"><br>
+							<input type="hidden" name="nom_association">
+							Nom de la mission :<br>
+							<input type="text" name="nom_mission"><br>
+							<input type="hidden" name="numero_mission">
+							Description :<br>
+							<textarea name="desc"></textarea><br>
+							Date début :<br>
+							<input type="date" name="date"><br>
+							Durée : <em>(en heures)</em><br>
+							<input type="number" name="duree"><br>
+							Nombre de bénévoles :<br>
+							<input type="number" name="nbr_benevole"><br>
+							Compétence requise :<br>
+							<select name="competence">
+								<option value="Aucune">Aucune</option>
+								<option value="animaux">être a l'aise avec les animaux</option>
+								<option value="porter_objet">Pouvoir porter des objets lourds</option>
+								<option value="sociale">être à l'aise avec les gens</option>
+								<option value="Conduire">avoir le permis</option>
+							</select>
+							<h4>Lieu de la mission </h4>
+							Pays :<br>
+							<input type="text" name="pays"><br>
+							Ville :<br>
+							<input type="text" name="ville"><br>
+							Code postal :<br>
+							<input type="number" name="code_postal"><br>
+							Rue :<br>
+							<input type="text" name="rue"><br>
+							<button id="envoyer" style="background-color: #ddfee4; border:#ddfee4 ; border-radius: 10px;">Envoyer</button><br>
+						</form>
+					</div>
 				</div>
 			</section>
 

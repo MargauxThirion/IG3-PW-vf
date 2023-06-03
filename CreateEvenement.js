@@ -106,3 +106,46 @@ export function ajoutListenerSupprimerEvenement() {
     });
   });
 }
+
+
+export async function ajoutListenerEnvoyerEvenement() {
+  const formulaireEvenement = document.querySelector(".formulaire-modifier-ev");
+  formulaireEvenement.addEventListener("submit", async function (event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    try {
+      const idAnnonce = formulaireEvenement.getAttribute("numero_mission"); // Récupère l'identifiant de l'annonce
+
+
+      const evenement = {
+        nom_association: nom,
+        nom_mission: event.target.elements.nom_mission.value,
+        numero_mission: idAnnonce, // Utilise l'identifiant de l'annonce
+        email: mail,
+        desc: event.target.elements.desc.value,
+        date: event.target.elements.date.value,
+        duree: event.target.elements.duree.value,
+        nbr_benevole: event.target.elements.nbr_benevole.value,
+        competence: event.target.elements.competence.value,
+        pays: event.target.elements.pays.value,
+        ville: event.target.elements.ville.value,
+        code_postal: event.target.elements.code_postal.value,
+        rue: event.target.elements.rue.value,
+      };
+
+      const Json = JSON.stringify(evenement);
+      await fetch(`https://web-hands-in-hands.onrender.com/annonce/${idAnnonce}`, { // Utilise l'URL avec l'identifiant de l'annonce
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: Json,
+      });
+
+      setTimeout(function () {
+        location.reload();
+      }, 500);
+    } catch (error) {
+      console.error("Erreur lors de la modification de l'annonce :", error);
+      throw error;
+    }
+  });
+}
