@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     function genererProfil(users){
         for (let i = 0; i < users.length; i++) {
             const user = users[i];
-        const sectionFiches = document.querySelector(".Profile");
-        const userEl = document.createElement("article");
+            const sectionFiches = document.querySelector(".Profile");
+            const userEl = document.createElement("article");
 
-        const nomUCmp = document.createElement("h2"); 
-        nomUCmp.innerHTML = user.nomU + ' ' + user.prenomU;
+            const nomUCmp = document.createElement("h2"); 
+            nomUCmp.innerHTML = user.nomU + ' ' + user.prenomU;
 
         const emailU = document.createElement("h3"); 
         emailU.innerHTML =`<strong> Adresse Mail : </strong>` + user.emailU;
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
         const evenements = await annonces.json();
         console.log('resultat du fetch : ',evenements);
+        function genererAnnonce(evenements){
         for (let j = 0; j < evenements.length; j++) {
             const evenement = evenements[j];
         
@@ -130,5 +131,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             evenementEl.appendChild(competencesEl);
             evenementEl.appendChild(adresseEl);
         }
+        }
+        genererAnnonce(evenements);
     }
 });
