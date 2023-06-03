@@ -94,14 +94,14 @@ function genererEvenements(evenements){
   ajoutListenersAvis();
   ajoutListenersParticipe();
   ajoutListenerSupprimerEvenement();
-  ajoutListenerModifierEvenement();
+  //ajoutListenerModifierEvenement();
 }
 genererEvenements(evenements);
 ajoutListenersButtonAvis();
 ajoutListenersButtonParticiper();
 ajoutListenersAjouterEvenement();
 ajoutListenersSupprEvenement();
-ajoutListenersModifEvenement();
+ajoutListenerModifEvenement();
 
 
 
