@@ -71,24 +71,24 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
         const evenements = await annonce.json();
         console.log('resultat du fetch : ',evenements);
-        function genererAnnonce(evenements){
+        /*function genererAnnonce(evenements){
         for (let j = 0; j < evenements.length; j++) {
             const evenement = evenements[j];
-            console.log('je suis là, evenement = ',evenement);
+            console.log('je suis là, evenement = ',evenement);*/
             const sectionFiches = document.querySelector(".fiches");
             const evenementEl = document.createElement("article");
-
+$
             const nomEl = document.createElement("h2"); //le titre
-            nomEl.innerText = evenement.nom_association;
+            nomEl.innerText = evenements.nom_association;
 
             const nomMissionEl = document.createElement("h3"); //le titre de la mission
-            nomMissionEl.innerHTML = '<strong> Mission </strong>'+ evenement.numero_mission + ' : ' + evenement.nom_mission;
+            nomMissionEl.innerHTML = '<strong> Mission </strong>'+ evenements.numero_mission + ' : ' + evenements.nom_mission;
 
             const descriptionEl = document.createElement("p"); //la description
-            descriptionEl.innerHTML ='<strong> Description: </strong>' + evenement.desc;
+            descriptionEl.innerHTML ='<strong> Description: </strong>' + evenements.desc;
 
             const dateEl = document.createElement("p"); // Élément pour afficher la date
-            const dateDebut = new Date(evenement.date); // Convertit la date en objet Date
+            const dateDebut = new Date(evenements.date); // Convertit la date en objet Date
             // Formattage de la date
             const jour = String(dateDebut.getDate()).padStart(2, "0"); // Récupère le jour avec deux chiffres (ajoute un zéro si nécessaire)
             const mois = String(dateDebut.getMonth() + 1).padStart(2, "0"); // Récupère le mois avec deux chiffres (ajoute un zéro si nécessaire)
@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', async function () {
             dateEl.innerHTML = "<strong> Date début: </strong> " + dateFormatee;
 
             const dureeEl = document.createElement("p"); //la durée
-            dureeEl.innerHTML = '<strong> Durée:</strong> ' + evenement.duree + ' heures';
+            dureeEl.innerHTML = '<strong> Durée:</strong> ' + evenements.duree + ' heures';
     
             const nbr_benevoleEl = document.createElement("p"); //le nombre de bénévole
-            nbr_benevoleEl.innerHTML = '<strong>Nombre de personne nécessaire : </strong>' + evenement.nbr_benevole;
+            nbr_benevoleEl.innerHTML = '<strong>Nombre de personne nécessaire : </strong>' + evenements.nbr_benevole;
     
             const competencesEl = document.createElement("p"); // les compétences
-            const competenceValue = evenement.competence;
+            const competenceValue = evenements.competence;
             let competenceText = '';
             switch (competenceValue) {
                 case 'Aucune': competenceText = 'Aucune';
@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             competencesEl.innerHTML = '<strong> Compétence nécessaire : </strong>' + competenceText;
     
             const adresseEl = document.createElement("p"); //l'adresse
-            const paysEnMajuscules = evenement.pays.toUpperCase(); // Met le pays en majuscules
-            adresseEl.innerHTML = '<strong>Adresse :</strong> ' + evenement.rue + ' ' + evenement.ville + ' ' + evenement.code_postal + ' ' + paysEnMajuscules;
+            const paysEnMajuscules = evenements.pays.toUpperCase(); // Met le pays en majuscules
+            adresseEl.innerHTML = '<strong>Adresse :</strong> ' + evenements.rue + ' ' + evenements.ville + ' ' + evenements.code_postal + ' ' + paysEnMajuscules;
 
 
             //Ratachement de nos éléments au DOM
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             evenementEl.appendChild(competencesEl);
             evenementEl.appendChild(adresseEl);
         }
-        }
-        genererAnnonce(evenements);
-    }
+        //}
+        //genererAnnonce(evenements);
+    //}
 });
