@@ -23,7 +23,7 @@ export function ajoutListenersSupprEvenement() {
     });
 }
 
-export function ajoutListenerModifEvenement() {
+export function ajoutListenersModifEvenement() {
   var boutonModif = document.getElementById('btn-annonce-modif');
   var formulaireContainer = document.querySelector('.formulaire-container-modif');
   boutonModif.addEventListener('click', function() {
