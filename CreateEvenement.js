@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const mail = localStorage.getItem('email');
+const nom = localStorage.getItem('nom');
 const encodedEmail = encodeURIComponent(mail);
 
 export async function ajoutListenerEnvoyerEvenement() {
@@ -57,7 +58,7 @@ export async function ajoutListenerEnvoyerEvenement() {
     const imagePath = selectedOption.getAttribute('data-image');
     // création d'un nouvel objet avis 
     const evenement = {
-        nom_association: event.target.elements.nom_association.value,
+        nom_association: nom,
         nom_mission: event.target.elements.nom_mission.value,
         numero_mission: maxNumeroMission + 1,
         email: mail,
