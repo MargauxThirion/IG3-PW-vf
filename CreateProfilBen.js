@@ -3,15 +3,19 @@ function getToken() {
 }
 
 // Exemple d'utilisation pour récupérer et afficher le token
-$(document).ready(function() {
-        var token = getToken();
-        if (token) {
-            console.log('Mail:', localStorage.getItem('email'));
-        $('#tokenValue').text(token);
-       } else {
-            console.log('Token non trouvé');
+document.addEventListener('DOMContentLoaded', function() {
+    var token = getToken();
+    if (token) {
+        console.log('Mail:', localStorage.getItem('email'));
+        var tokenValueElement = document.getElementById('tokenValue');
+        if (tokenValueElement) {
+            tokenValueElement.textContent = token;
         }
+    } else {
+        console.log('Token non trouvé');
+    }
 });
+
 const mail = localStorage.getItem('email');
 const encodedEmail = encodeURIComponent(mail);
 
