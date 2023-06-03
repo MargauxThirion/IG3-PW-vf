@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var token = getToken();
   if (token) {
       console.log('Mail:', localStorage.getItem('email'));
+      console.log('Nom:', localStorage.getItem('nom'));
       var tokenValueElement = document.getElementById('tokenValue');
       if (tokenValueElement) {
           tokenValueElement.textContent = token;
