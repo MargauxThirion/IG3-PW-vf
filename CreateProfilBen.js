@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             nbr_benevoleEl.innerHTML = '<strong>Nombre de personne nécessaire : </strong>' + evenement.nbr_benevole;
     
             const competencesEl = document.createElement("p"); // les compétences
-            const competenceValue = evenements[i].competence;
+            const competenceValue = evenement.competence;
             let competenceText = '';
             switch (competenceValue) {
                 case 'Aucune': competenceText = 'Aucune';
