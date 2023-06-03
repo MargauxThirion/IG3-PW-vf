@@ -71,10 +71,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
         const evenements = await annonce.json();
         console.log('resultat du fetch : ',evenements);
-        /*function genererAnnonce(evenements){
-        for (let j = 0; j < evenements.length; j++) {
-            const evenement = evenements[j];
-            console.log('je suis là, evenement = ',evenement);*/
             const sectionFiches = document.querySelector(".fiches");
             const evenementEl = document.createElement("article");
 $
