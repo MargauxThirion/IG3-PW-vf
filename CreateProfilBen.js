@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
         console.log('resultat du fetch : ',annonces);
         const evenements = await annonces.json();
-        for (let j = 0; i < evenements.length; j++) {
+        for (let j = 0; j < evenements.length; j++) {
             const evenement = evenements[j];
         
             const sectionFiches = document.querySelector(".fiches");
