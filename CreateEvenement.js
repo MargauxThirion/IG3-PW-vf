@@ -43,8 +43,6 @@ function getToken() {
 document.addEventListener('DOMContentLoaded', function() {
   var token = getToken();
   if (token) {
-      console.log('Mail:', localStorage.getItem('email'));
-      console.log('Nom:', localStorage.getItem('nom'));
       var tokenValueElement = document.getElementById('tokenValue');
       if (tokenValueElement) {
           tokenValueElement.textContent = token;
@@ -119,7 +117,6 @@ export function ajoutListenerSupprimerEvenement() {
   });
 }
 
-
 export async function ajoutListenersModifierEvenement() {
   const formulaireEvenement = document.querySelector(".formulaire-modifier-ev");
   formulaireEvenement.addEventListener("submit", async function (event) {
@@ -145,18 +142,19 @@ export async function ajoutListenersModifierEvenement() {
       };
 
       const Json = JSON.stringify(evenement);
-      await fetch(`https://web-hands-in-hands.onrender.com/annonce/mission/${idAnnonce}`, { // Utilise l'URL avec l'identifiant de l'annonce
+      const response = await fetch(`https://web-hands-in-hands.onrender.com/annonce/mission/${idAnnonce}`, { // Utilise l'URL avec l'identifiant de l'annonce
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: Json,
       });
 
-      setTimeout(function () {
-        location.reload();
-      }, 500);
+      if (response.ok) {
+        console.log("Requête réussie !");
+      } else {
+        console.error("Erreur lors de la requête :", response.status);
+      }
     } catch (error) {
-      console.error("Erreur lors de la modification de l'annonce :", error);
-      throw error;
+      console.error("Erreur lors de la requête :", error);
     }
   });
 }
