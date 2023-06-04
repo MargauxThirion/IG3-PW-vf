@@ -88,8 +88,9 @@ function genererEvenements(evenements){
     evenementEl.appendChild(nbr_benevoleEl);
     evenementEl.appendChild(competencesEl);
     evenementEl.appendChild(adresseEl);
-    evenementEl.appendChild(ParticipeBouton);
     evenementEl.appendChild(avisBouton);
+    evenementEl.appendChild(ParticipeBouton);
+    
 
   }
   ajoutListenersAvis();

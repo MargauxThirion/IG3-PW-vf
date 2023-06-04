@@ -25,7 +25,7 @@ export function ajoutListenersParticipe() {
             let participeEl = annonceEl.querySelector(".part");
             if (participeEl) {
                 annonceEl.removeChild(participeEl);
-                event.target.textContent = "Afficher les participants";
+                event.target.textContent = "Participants";
             } else {
                 participeEl = document.createElement("div");
                 participeEl.classList.add("part");
