@@ -128,17 +128,48 @@ export async function ajoutListenersModifierEvenement() {
       const evenement = {
         nom_association: nom,
         nom_mission: event.target.elements.nom_mission.value,
+        if (nomMission) {
+          evenement.nom_mission = nomMission;
+        },
         numero_mission: numero_mission, // Utilise l'identifiant de l'annonce
         email: mail,
         desc: event.target.elements.desc.value,
+        if (desc) {
+          evenement.desc = desc;
+        },
         date: event.target.elements.date.value,
+        if (date) {
+          evenement.date = date;
+        },
         duree: event.target.elements.duree.value,
+        if (duree) {
+          evenement.duree = duree;
+        },
         nbr_benevole: event.target.elements.nbr_benevole.value,
+        if (nbr_benevole) {
+          evenement.nbr_benevole = nbr_benevole;
+        },
         competence: event.target.elements.competence.value,
+        if (competence) {
+          evenement.competence = competence;
+        },
         pays: event.target.elements.pays.value,
+        if (pays) {
+          evenement.pays = pays;
+        },
         ville: event.target.elements.ville.value,
+        if (ville) {
+          evenement.ville = ville;
+        },
         code_postal: event.target.elements.code_postal.value,
+        if (code_postal) {
+          evenement.code_postal = code_postal;
+        },
         rue: event.target.elements.rue.value,
+        if (rue) {
+          evenement.rue = rue;
+        }
+        
       };
 
       const Json = JSON.stringify(evenement);
