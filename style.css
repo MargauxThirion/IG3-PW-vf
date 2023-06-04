@@ -236,7 +236,7 @@ part{	/*affichage des participants */
 	font-style: Bold;
 }
 
-av {	/*affichage des avis */
+.av {	/*affichage des avis */
 	text-align: center;
 	color : #2dcc9c;
 }

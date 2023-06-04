@@ -20,11 +20,19 @@ export function ajoutListenersAvis() {
             });
             const avis = await reponses.json(); //transforme le json en objet js
             const annonceEl = event.target.parentElement;
-            const avisEl = document.createElement("av");
-            for (let i = 0; i < avis.length; i++) {
-                avisEl.innerHTML += `<br>Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
-            }
+            let avisEl = annonceEl.querySelector(".av");
+            if (avisEl) {
+                annonceEl.removeChild(avisEl);
+                event.target.textContent = "Afficher les avis";
+            } else {
+                avisEl = document.createElement("div");
+                avisEl.classList.add("av");
+                for (let i = 0; i < avis.length; i++) {
+                    avisEl.innerHTML += `<br>Avis ${[i+1]}:<br> Utilisateur <strong>${avis[i].id_user}</strong> ${avis[i].commentaire} <br> <br>`;
+                }
             annonceEl.appendChild(avisEl);
+            event.target.textContent = "Cacher les avis";
+            }
         });
     }
 }

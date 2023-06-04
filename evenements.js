@@ -43,7 +43,7 @@ function genererEvenements(evenements){
     dureeEl.innerHTML = '<strong> Durée:</strong> ' + evenement.duree + ' heures';
     
     const nbr_benevoleEl = document.createElement("p"); //le nombre de bénévole
-    nbr_benevoleEl.innerHTML = '<strong>Nombre de personne nécessaire : </strong>' + evenement.nbr_benevole;
+    nbr_benevoleEl.innerHTML = '<strong>Nombre de personne(s) nécessaire(s) : </strong>' + evenement.nbr_benevole;
     
     const competencesEl = document.createElement("p"); // les compétences
     const competenceValue = evenements[i].competence;
