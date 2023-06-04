@@ -116,7 +116,7 @@ export function ajoutListenerSupprimerEvenement() {
     });
   });
 }
-/*
+
 export async function ajoutListenersModifierEvenement() {
   const formulaireEvenementModif = document.querySelector(".formulaire-modifier-ev");
   formulaireEvenementModif.addEventListener("submit", async function (event) {
@@ -158,4 +158,3 @@ export async function ajoutListenersModifierEvenement() {
     }
   });
 }
-*/
