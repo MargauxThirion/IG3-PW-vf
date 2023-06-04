@@ -237,7 +237,7 @@ select {
 }
 
 .av {	/*affichage des avis */
-	text-align: center;
+	text-align: left;
 	color : #2dcc9c;
 }
 
