@@ -22,11 +22,19 @@ export function ajoutListenersParticipe() {
             });
             const participe = await reponse.json(); //transforme le json en objet js
             const annonceEl = event.target.parentElement;
-            const participeEl = document.createElement("part");
-            for (let i = 0; i < participe.length; i++) {
-                participeEl.innerHTML += `<br> <strong>${participe[i].id_user}</strong> participe <br>`;
-            }
+            let participeEl = annonceEl.querySelector(".part");
+            if (participeEl) {
+                annonceEl.removeChild(participeEl);
+                event.target.textContent = "Afficher les participants";
+            } else {
+                participeEl = document.createElement("div");
+                participeEl.classList.add("part");
+                for (let i = 0; i < participe.length; i++) {
+                    participeEl.innerHTML += `<br> <strong>${participe[i].id_user}</strong> participe <br>`;
+                }
             annonceEl.appendChild(participeEl);
+            event.target.textContent = "Cacher les participants";
+            }
         });
     }
 }

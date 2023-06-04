@@ -231,7 +231,7 @@ select {
 
 
 
-part{	/*affichage des participants */
+.part{	/*affichage des participants */
 	text-align: right;
 	font-style: Bold;
 }

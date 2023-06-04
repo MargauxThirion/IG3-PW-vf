@@ -70,7 +70,7 @@ function genererEvenements(evenements){
 
     const avisBouton = document.createElement("button");
     avisBouton.dataset.id = evenement.numero_mission;
-    avisBouton.classList.add("btn-avis", "hide");
+    avisBouton.classList.add("btn-avis");
     avisBouton.textContent = "Afficher les avis";
 
     const ParticipeBouton = document.createElement("button");
