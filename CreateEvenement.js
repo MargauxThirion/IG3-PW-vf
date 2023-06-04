@@ -126,51 +126,52 @@ export async function ajoutListenersModifierEvenement() {
       const numero_mission = parseInt(event.target.elements.numero_mission.value); // Récupère l'identifiant de l'annonce
 
       const evenement = {
-        nom_association: nom,
-        nom_mission: event.target.elements.nom_mission.value,
-        if (nomMission) {
-          evenement.nom_mission = nomMission;
-        },
-        numero_mission: numero_mission, // Utilise l'identifiant de l'annonce
-        email: mail,
-        desc: event.target.elements.desc.value,
+        numero_mission:  numero_mission,
+      }
+        const nom_association = nom
+        evenement.nom_association = nom_association;
+        const nom_mission = event.target.elements.nom_mission.value
+        if (nom_mission) {
+          evenement.nom_mission = nom_mission;
+        }
+        const email = mail
+        evenement.email = email;
+        const desc = event.target.elements.desc.value
         if (desc) {
           evenement.desc = desc;
-        },
-        date: event.target.elements.date.value,
+        }
+        const date = event.target.elements.date.value
         if (date) {
           evenement.date = date;
-        },
-        duree: event.target.elements.duree.value,
+        }
+        const duree = event.target.elements.duree.value
         if (duree) {
           evenement.duree = duree;
-        },
-        nbr_benevole: event.target.elements.nbr_benevole.value,
+        }
+        const nbr_benevole = event.target.elements.nbr_benevole.value
         if (nbr_benevole) {
           evenement.nbr_benevole = nbr_benevole;
-        },
-        competence: event.target.elements.competence.value,
+        }
+        const competence = event.target.elements.competence.value
         if (competence) {
           evenement.competence = competence;
-        },
-        pays: event.target.elements.pays.value,
+        }
+        const pays = event.target.elements.pays.value
         if (pays) {
           evenement.pays = pays;
-        },
-        ville: event.target.elements.ville.value,
+        }
+        const ville = event.target.elements.ville.value
         if (ville) {
           evenement.ville = ville;
-        },
-        code_postal: event.target.elements.code_postal.value,
+        }
+        const code_postal = event.target.elements.code_postal.value
         if (code_postal) {
           evenement.code_postal = code_postal;
-        },
-        rue: event.target.elements.rue.value,
+        }
+        const rue = event.target.elements.rue.value
         if (rue) {
           evenement.rue = rue;
         }
-        
-      };
 
       const Json = JSON.stringify(evenement);
       const response = await fetch(`https://web-hands-in-hands.onrender.com/annonce/mission/${numero_mission}`, { // Utilise l'URL avec l'identifiant de l'annonce
