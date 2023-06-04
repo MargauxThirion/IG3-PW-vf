@@ -182,6 +182,7 @@ export async function ajoutListenersModifierEvenement() {
 
       if (response.ok) {
         console.log("Requête réussie !");
+        setTimeout(function() {location.reload()}, 500);
       } else {
         console.error("Erreur lors de la requête :", response.status);
       }
