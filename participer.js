@@ -37,8 +37,6 @@ function getToken() {
 
 var token = getToken();
 if (token) {
-    console.log('Token:', token);
-    console.log('Mail:', localStorage.getItem('email'));
     const mail = localStorage.getItem('email');
     // Faites ce que vous voulez avec le token ici, par exemple, l'afficher dans un élément HTML
 } else {
