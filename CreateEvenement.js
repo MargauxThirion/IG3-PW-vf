@@ -117,7 +117,7 @@ export function ajoutListenerSupprimerEvenement() {
   });
 }
 
-export async function ajoutListenersModifierEvenement() {
+export function ajoutListenersModifierEvenement() {
   const formulaireEvenement = document.querySelector(".formulaire-modifier-ev");
   formulaireEvenement.addEventListener("submit", async function (event) {
     event.preventDefault(); // Empêche le rechargement de la page
