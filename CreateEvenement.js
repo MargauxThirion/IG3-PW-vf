@@ -123,12 +123,12 @@ export async function ajoutListenersModifierEvenement() {
     event.preventDefault(); // Empêche le rechargement de la page
 
     try {
-      const idAnnonce = document.querySelector("#numero_mission").value; // Récupère l'identifiant de l'annonce
+      const numero_mission = parseInt(event.target.elements.numero_mission.value); // Récupère l'identifiant de l'annonce
 
       const evenement = {
         nom_association: nom,
         nom_mission: event.target.elements.nom_mission.value,
-        numero_mission: idAnnonce, // Utilise l'identifiant de l'annonce
+        numero_mission: numero_mission, // Utilise l'identifiant de l'annonce
         email: mail,
         desc: event.target.elements.desc.value,
         date: event.target.elements.date.value,
@@ -142,7 +142,7 @@ export async function ajoutListenersModifierEvenement() {
       };
 
       const Json = JSON.stringify(evenement);
-      const response = await fetch(`https://web-hands-in-hands.onrender.com/annonce/mission/${idAnnonce}`, { // Utilise l'URL avec l'identifiant de l'annonce
+      const response = await fetch(`https://web-hands-in-hands.onrender.com/annonce/mission/${numero_mission}`, { // Utilise l'URL avec l'identifiant de l'annonce
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: Json,
